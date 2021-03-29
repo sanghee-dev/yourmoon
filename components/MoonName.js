@@ -3,9 +3,9 @@ import styled from "styled-components/native";
 
 const Text = styled.Text`
   color: white;
-  font-weight: 100;
+  font-weight: 200;
   font-size: 40px;
-  margin-bottom: 100px;
+  margin: 60px 0;
 `;
 
 const MoonName = ({ stage }) => {

@@ -10,7 +10,7 @@ const MoonContainer = styled.View`
   overflow: hidden;
 `;
 
-const MoonShape = () => {
+const MoonShape = ({ illumination }) => {
   return (
     <MoonContainer>
       <LinearGradient

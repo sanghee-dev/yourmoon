@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "^3.4.3",
     "axios": "^0.21.1",
     "expo": "~40.0.0",
     "expo-linear-gradient": "~8.4.0",
