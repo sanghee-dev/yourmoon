@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-import Moon from "../../components/Moon";
+import MoonShape from "../../components/MoonShape";
 
 const Container = styled.View`
   width: 100%;
@@ -20,7 +20,7 @@ const Presenter = ({
 }) => {
   return (
     <Container>
-      <Moon />
+      <MoonShape />
     </Container>
   );
 };
