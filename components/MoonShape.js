@@ -8,7 +8,6 @@ const MoonContainer = styled.View`
   width: ${DIAMETER}px;
   height: ${DIAMETER}px;
   border-radius: ${DIAMETER / 2}px;
-  background-color: white;
   overflow: hidden;
 `;
 
@@ -21,10 +20,10 @@ const MoonShape = () => {
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
           colors={[
-            "rgba(0,0,0,0)",
-            "rgba(0,0,0,1)",
-            "rgba(0,0,0,0)",
-            "rgba(0,0,0,0)",
+            "rgba(255,255,255,1)",
+            "rgba(255,255,255,1)",
+            "rgba(255,255,255,0)",
+            "rgba(255,255,255,0)",
           ]}
           locations={[0, 0.4, 0.6, 1]}
         />
