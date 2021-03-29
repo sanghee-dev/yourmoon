@@ -9,7 +9,15 @@ const Container = styled.View`
   align-items: center;
 `;
 
-const Presenter = () => {
+const Presenter = ({
+  loading,
+  time,
+  setTime,
+  data,
+  editing,
+  setEditing,
+  leftMoon,
+}) => {
   return (
     <Container>
       <Moon />
