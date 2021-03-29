@@ -38,7 +38,10 @@ const Container = () => {
       loading={loading}
       time={time}
       setTime={setTime}
-      data={data}
+      illumination={data?.illumination}
+      fmdt={data?.fm?.dt}
+      nnmdt={data?.nnm?.dt}
+      stage={data?.stage}
       editing={editing}
       setEditing={setEditing}
       leftMoon={leftMoon}

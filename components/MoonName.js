@@ -8,8 +8,10 @@ const Text = styled.Text`
   margin-bottom: 100px;
 `;
 
-const MoonName = () => {
-  return <Text>Waning Moon</Text>;
+const MoonName = ({ stage }) => {
+  const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
+  return <Text>{capitalize(stage)} Moon</Text>;
 };
 
 export default MoonName;

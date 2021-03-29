@@ -16,7 +16,10 @@ const Presenter = ({
   loading,
   time,
   setTime,
-  data,
+  illumination,
+  fmdt,
+  nnmdt,
+  stage,
   editing,
   setEditing,
   leftMoon,
@@ -31,7 +34,7 @@ const Presenter = ({
         <ActivityIndicator size="small" color="white" />
       ) : (
         <>
-          <MoonName />
+          <MoonName stage={stage} />
           <MoonShape />
         </>
       )}
