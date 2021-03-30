@@ -42,7 +42,7 @@ const DatePick = ({ time, setTime }) => {
   return (
     <Container>
       <DateButton onPress={onPress} onLongPress={onLongPress}>
-        <DateButtonText style={{ marginBottom: show ? 0 : 204 }}>
+        <DateButtonText style={{ marginBottom: show ? 20 : 200 }}>
           {dateToString(time)}
         </DateButtonText>
       </DateButton>
