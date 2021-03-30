@@ -10,7 +10,7 @@ const MoonContainer = styled.View`
   border-radius: ${DIAMETER / 2}px;
 `;
 
-const MoonShape = ({ illumination }) => {
+const MoonShape = ({ illumination, leftMoon }) => {
   console.log(illumination);
 
   return (
@@ -38,13 +38,27 @@ const MoonShape = ({ illumination }) => {
           }}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
-          colors={[
-            "rgba(255,255,255,1)",
-            "rgba(255,255,255,1)",
-            "rgba(255,255,255,0)",
-            "rgba(255,255,255,0)",
+          colors={
+            leftMoon
+              ? [
+                  "rgba(255,255,255,1)",
+                  "rgba(255,255,255,1)",
+                  "rgba(255,255,255,0)",
+                  "rgba(255,255,255,0)",
+                ]
+              : [
+                  "rgba(255,255,255,0)",
+                  "rgba(255,255,255,0)",
+                  "rgba(255,255,255,1)",
+                  "rgba(255,255,255,1)",
+                ]
+          }
+          locations={[
+            0,
+            illumination - 0.05 < 0 ? 0 : illumination - 0.05,
+            illumination + 0.05 > 1 ? 1 : illumination + 0.05,
+            1,
           ]}
-          locations={[0, 0.4, 0.6, 1]}
         />
       </MoonContainer>
     </>
