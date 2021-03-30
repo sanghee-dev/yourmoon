@@ -5,6 +5,11 @@ import MoonShape from "../../components/MoonShape";
 import MoonName from "../../components/MoonName";
 import DatePick from "../../components/DatePick";
 import MoonDetail from "../../components/MoonDetail";
+import Swipe from "../../components/Swipe";
+
+const BG_COLOR = "rgb(0,0,0)";
+const MAIN_COLOR = "rgb(255,255,0)";
+const SUB_COLOR = "rgb(255,255,255)";
 
 const Container = styled.View`
   width: 100%;
@@ -39,7 +44,7 @@ const Presenter = ({
         <>
           <MoonName stage={stage} />
           <MoonShape
-            illumination={Math.round(illumination) / 100}
+            illumination={Math.round(illumination * 10) / 1000}
             leftMoon={leftMoon}
             setDetail={setDetail}
           />
@@ -50,6 +55,7 @@ const Presenter = ({
           )}
         </>
       )}
+      <Swipe BG_COLOR={BG_COLOR} />
     </Container>
   );
 };

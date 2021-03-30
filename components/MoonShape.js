@@ -4,8 +4,9 @@ import { Dimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
-const SCALE = 0.8;
+const SCALE = 0.7;
 const RADIUS = WIDTH * SCALE;
+const SMALL_RADIUS = WIDTH * SCALE * 0.3;
 const MARGIN_TOP = 40;
 
 const MoonContainer = styled.View`
@@ -26,20 +27,20 @@ const MoonPeace = styled.View`
   position: absolute;
 `;
 const MoonCenter = styled.View`
-  width: 84px;
-  height: 84px;
-  border-radius: 42px;
+  width: ${SMALL_RADIUS}px;
+  height: ${SMALL_RADIUS}px;
+  border-radius: ${SMALL_RADIUS / 2}px;
   background-color: "rgba(255,255,0,1)";
   position: relative;
-  top: ${RADIUS / 2}px;
+  top: ${WIDTH / 2 - SMALL_RADIUS / 2}px;
 `;
 const MoonShadow = styled.View`
-  width: ${RADIUS + 2}px;
-  height: ${RADIUS + 2}px;
-  border-radius: ${RADIUS / 2 + 1}px;
+  width: ${RADIUS}px;
+  height: ${RADIUS}px;
+  border-radius: ${RADIUS / 2}px;
   background-color: black;
   position: absolute;
-  top: ${MARGIN_TOP}px;
+  top: ${MARGIN_TOP + 22}px;
 `;
 
 const MoonShape = ({ illumination, leftMoon, setDetail }) => {
@@ -88,8 +89,8 @@ const MoonShape = ({ illumination, leftMoon, setDetail }) => {
         style={[
           {
             left: leftMoon
-              ? illumination * RADIUS + MARGIN_TOP
-              : -illumination * RADIUS + MARGIN_TOP,
+              ? illumination * RADIUS + MARGIN_TOP + 22
+              : -illumination * RADIUS + MARGIN_TOP + 22,
           },
           {
             shadowOffset: {

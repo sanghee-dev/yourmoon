@@ -6,7 +6,7 @@ const Text = styled.Text`
   font-weight: 100;
   font-size: 40px;
   margin-top: 60px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `;
 
 const MoonName = ({ stage }) => {
