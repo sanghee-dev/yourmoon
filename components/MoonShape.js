@@ -9,7 +9,7 @@ const RADIUS = WIDTH * SCALE;
 const SMALL_RADIUS = WIDTH * SCALE * 0.3;
 const MARGIN_TOP = 40;
 
-const MoonContainer = styled.View`
+const MoonContainer = styled.TouchableOpacity`
   width: ${WIDTH}px;
   height: ${WIDTH}px;
   border-radius: ${WIDTH / 2}px;
@@ -61,12 +61,12 @@ const MoonShape = ({
   return (
     <MoonContainer onPress={() => setDetail((prev) => !prev)}>
       <MoonPeaceContainer
+        onPress={() => setDetail((prev) => !prev)}
         style={[
           {
             transform: [{ scale: SCALE }],
           },
         ]}
-        onPress={() => setDetail((prev) => !prev)}
       >
         {moonPeaceArray.map((peace) => (
           <MoonPeace

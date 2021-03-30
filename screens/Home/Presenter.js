@@ -62,7 +62,7 @@ const Presenter = ({
           )}
         </>
       )}
-      <Swipe BG_COLOR={BG_COLOR} />
+      <Swipe time={time} setTime={setTime} BG_COLOR={BG_COLOR} />
     </Container>
   );
 };

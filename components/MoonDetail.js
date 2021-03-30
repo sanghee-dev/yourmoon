@@ -21,9 +21,13 @@ const MoonDetail = ({ time, fmdt, nnmdt, FONT_COLOR }) => {
   console.log(time);
 
   const fmDate = (dt) =>
-    dt.substring(12, 15) + " " + dt.substring(9, 11).replace("-", "");
+    dt.substring(11, 15).replace(" ", "") +
+    " " +
+    dt.substring(8, 11).replace("-", "");
   const nnmDate = (dt) =>
-    dt.substring(11, 14) + " " + dt.substring(8, 10).replace("-", "");
+    dt.substring(10, 14).replace(" ", "") +
+    " " +
+    dt.substring(8, 10).replace("-", "");
 
   return (
     <Container>
