@@ -1,19 +1,12 @@
-import React, { useState } from "react";
-import { Platform, Dimensions } from "react-native";
+import React from "react";
 import styled from "styled-components/native";
-import DateTimePicker from "@react-native-community/datetimepicker";
-import { LinearGradient } from "expo-linear-gradient";
-
-const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
-const PICKER_HEIGHT = 100;
 
 const Container = styled.View`
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 0;
+  bottom: 100px;
 `;
-const DateTimePickerContainer = styled.TouchableOpacity``;
 const DateButton = styled.TouchableOpacity``;
 const DateButtonText = styled.Text`
   text-align: center;
@@ -23,8 +16,6 @@ const DateButtonText = styled.Text`
 `;
 
 const DatePick = ({ time, setTime, FONT_COLOR }) => {
-  const [show, setShow] = useState(false);
-
   const dateToString = (date) => {
     const newDate = new Date(date);
     const showDate = newDate.toString().substring(4, 15);
@@ -32,53 +23,21 @@ const DatePick = ({ time, setTime, FONT_COLOR }) => {
       ? showDate.slice(0, 4) + showDate.slice(5)
       : showDate;
   };
-  const onLongPress = () => {
-    setTime(new Date());
-  };
   const onPress = () => {
-    setShow((prev) => !prev);
-  };
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || time;
-    setShow(Platform.OS === "ios");
-    setTime(currentDate);
+    setTime(new Date());
   };
 
   return (
     <Container>
-      <DateButton onPress={onPress} onLongPress={onLongPress}>
+      <DateButton onPress={onPress}>
         <DateButtonText
           style={{
-            marginBottom: show ? 20 : PICKER_HEIGHT + 20,
             color: FONT_COLOR,
           }}
         >
           {dateToString(time)}
         </DateButtonText>
       </DateButton>
-
-      {show && (
-        <DateTimePickerContainer onPress={onPress}>
-          <LinearGradient
-            style={{ width: WIDTH, justifyContent: "center" }}
-            colors={[
-              "rgba(255,255,255,0)",
-              "rgba(255,255,255,1)",
-              "rgba(255,255,255,1)",
-            ]}
-            locations={[0, 0.35, 1]}
-          >
-            <DateTimePicker
-              style={{ height: PICKER_HEIGHT }}
-              value={time}
-              mode="date"
-              is24Hour={true}
-              display="spinner"
-              onChange={onChange}
-            />
-          </LinearGradient>
-        </DateTimePickerContainer>
-      )}
     </Container>
   );
 };

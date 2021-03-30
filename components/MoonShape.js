@@ -4,7 +4,7 @@ import { Dimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
-const SCALE = 0.7;
+const SCALE = 0.8;
 const RADIUS = WIDTH * SCALE;
 const SMALL_RADIUS = WIDTH * SCALE * 0.3;
 const MARGIN_TOP = 40;
@@ -35,11 +35,11 @@ const MoonCenter = styled.View`
   top: ${WIDTH / 2 - SMALL_RADIUS / 2}px;
 `;
 const MoonShadow = styled.View`
-  width: ${RADIUS}px;
-  height: ${RADIUS}px;
-  border-radius: ${RADIUS / 2}px;
+  width: ${WIDTH}px;
+  height: ${WIDTH}px;
+  border-radius: ${WIDTH / 2}px;
   position: absolute;
-  top: ${MARGIN_TOP + 22}px;
+  top: ${MARGIN_TOP - MARGIN_TOP}px;
 `;
 
 const MoonShape = ({
@@ -59,15 +59,15 @@ const MoonShape = ({
   }
 
   return (
-    <MoonContainer onPress={() => setDetail((prev) => !prev)}>
-      <MoonPeaceContainer
-        onPress={() => setDetail((prev) => !prev)}
-        style={[
-          {
-            transform: [{ scale: SCALE }],
-          },
-        ]}
-      >
+    <MoonContainer
+      onPress={() => setDetail((prev) => !prev)}
+      style={[
+        {
+          transform: [{ scale: SCALE }],
+        },
+      ]}
+    >
+      <MoonPeaceContainer onPress={() => setDetail((prev) => !prev)}>
         {moonPeaceArray.map((peace) => (
           <MoonPeace
             key={peace}
@@ -90,9 +90,7 @@ const MoonShape = ({
         style={[
           { backgroundColor: BG_COLOR },
           {
-            left: leftMoon
-              ? illumination * RADIUS + MARGIN_TOP + 22
-              : -illumination * RADIUS + MARGIN_TOP + 22,
+            left: leftMoon ? illumination * WIDTH : -illumination * WIDTH,
           },
           {
             shadowOffset: {

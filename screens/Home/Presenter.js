@@ -50,7 +50,7 @@ const Presenter = ({
             SUB_COLOR={SUB_COLOR}
             BG_COLOR={BG_COLOR}
           />
-          {detail ? (
+          {!detail ? (
             <DatePick time={time} setTime={setTime} FONT_COLOR={FONT_COLOR} />
           ) : (
             <MoonDetail
