@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 
 const Container = styled.View`
   position: absolute;
-  bottom: 96px;
+  bottom: 76px;
 `;
 const DetailTime = styled.View`
   flex-direction: row;
