@@ -22,12 +22,15 @@ const DateButtonText = styled.Text`
   color: white;
 `;
 
-const DatePick = ({ time, setTime }) => {
+const DatePick = ({ time, setTime, FONT_COLOR }) => {
   const [show, setShow] = useState(false);
 
   const dateToString = (date) => {
     const newDate = new Date(date);
-    return newDate.toString().substring(4, 15);
+    const showDate = newDate.toString().substring(4, 15);
+    return showDate.charAt(4) === "0"
+      ? showDate.slice(0, 4) + showDate.slice(5)
+      : showDate;
   };
   const onLongPress = () => {
     setTime(new Date());
@@ -45,7 +48,10 @@ const DatePick = ({ time, setTime }) => {
     <Container>
       <DateButton onPress={onPress} onLongPress={onLongPress}>
         <DateButtonText
-          style={{ marginBottom: show ? 20 : PICKER_HEIGHT + 20 }}
+          style={{
+            marginBottom: show ? 20 : PICKER_HEIGHT + 20,
+            color: FONT_COLOR,
+          }}
         >
           {dateToString(time)}
         </DateButtonText>

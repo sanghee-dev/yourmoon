@@ -42,8 +42,6 @@ const Container = () => {
       fmdt={data?.fm?.dt}
       nnmdt={data?.nnm?.dt}
       stage={data?.stage}
-      dfcoe={data?.dfcoe}
-      dfs={data?.dfs}
       detail={detail}
       setDetail={setDetail}
       leftMoon={leftMoon}

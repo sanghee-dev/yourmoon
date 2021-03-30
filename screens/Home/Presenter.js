@@ -7,15 +7,15 @@ import DatePick from "../../components/DatePick";
 import MoonDetail from "../../components/MoonDetail";
 import Swipe from "../../components/Swipe";
 
+const MAIN_COLOR = "rgb(255,255,255)";
+const SUB_COLOR = "rgb(255,255,0)";
 const BG_COLOR = "rgb(0,0,0)";
-const MAIN_COLOR = "rgb(255,255,0)";
-const SUB_COLOR = "rgb(255,255,255)";
+const FONT_COLOR = "rgb(255,255,255)";
 
 const Container = styled.View`
   width: 100%;
   height: 100%;
   align-items: center;
-  background-color: black;
 `;
 
 const Presenter = ({
@@ -26,8 +26,6 @@ const Presenter = ({
   fmdt,
   nnmdt,
   stage,
-  dfcoe,
-  dfs,
   detail,
   setDetail,
   leftMoon,
@@ -36,22 +34,31 @@ const Presenter = ({
     <Container
       style={{
         justifyContent: loading ? "center" : "",
+        backgroundColor: BG_COLOR,
       }}
     >
       {loading ? (
         <ActivityIndicator size="small" color="white" />
       ) : (
         <>
-          <MoonName stage={stage} />
+          <MoonName stage={stage} FONT_COLOR={FONT_COLOR} />
           <MoonShape
             illumination={Math.round(illumination * 10) / 1000}
             leftMoon={leftMoon}
             setDetail={setDetail}
+            MAIN_COLOR={MAIN_COLOR}
+            SUB_COLOR={SUB_COLOR}
+            BG_COLOR={BG_COLOR}
           />
           {detail ? (
-            <DatePick time={time} setTime={setTime} />
+            <DatePick time={time} setTime={setTime} FONT_COLOR={FONT_COLOR} />
           ) : (
-            <MoonDetail time={time} fmdt={fmdt} nnmdt={nnmdt} />
+            <MoonDetail
+              time={time}
+              fmdt={fmdt}
+              nnmdt={nnmdt}
+              FONT_COLOR={FONT_COLOR}
+            />
           )}
         </>
       )}

@@ -9,32 +9,32 @@ const DetailTime = styled.View`
   flex-direction: row;
 `;
 const Title = styled.Text`
-  color: rgba(255, 255, 255, 0.7);
   font-weight: 100;
   font-size: 20px;
 `;
 const Text = styled.Text`
-  color: white;
   font-weight: 100;
   font-size: 20px;
 `;
 
-const MoonDetail = ({ time, fmdt, nnmdt }) => {
+const MoonDetail = ({ time, fmdt, nnmdt, FONT_COLOR }) => {
   console.log(time);
 
-  const fmDate = (dt) => dt.substring(12, 15) + dt.substring(9, 11);
-  const nnmDate = (dt) => dt.substring(11, 14) + dt.substring(8, 10);
+  const fmDate = (dt) =>
+    dt.substring(12, 15) + " " + dt.substring(9, 11).replace("-", "");
+  const nnmDate = (dt) =>
+    dt.substring(11, 14) + " " + dt.substring(8, 10).replace("-", "");
 
   return (
     <Container>
       <DetailTime>
-        <Title>Full Moon</Title>
-        <Text>{`     ${fmDate(fmdt)}`}</Text>
+        <Title style={{ color: FONT_COLOR, opacity: 0.7 }}>Full Moon</Title>
+        <Text style={{ color: FONT_COLOR }}>{`     ${fmDate(fmdt)}`}</Text>
       </DetailTime>
 
       <DetailTime>
-        <Title>New Moon</Title>
-        <Text>{`   ${nnmDate(nnmdt)}`}</Text>
+        <Title style={{ color: FONT_COLOR, opacity: 0.7 }}>New Moon</Title>
+        <Text style={{ color: FONT_COLOR }}>{`   ${nnmDate(nnmdt)}`}</Text>
       </DetailTime>
     </Container>
   );

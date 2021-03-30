@@ -38,12 +38,18 @@ const MoonShadow = styled.View`
   width: ${RADIUS}px;
   height: ${RADIUS}px;
   border-radius: ${RADIUS / 2}px;
-  background-color: black;
   position: absolute;
   top: ${MARGIN_TOP + 22}px;
 `;
 
-const MoonShape = ({ illumination, leftMoon, setDetail }) => {
+const MoonShape = ({
+  illumination,
+  leftMoon,
+  setDetail,
+  MAIN_COLOR,
+  SUB_COLOR,
+  BG_COLOR,
+}) => {
   console.log(illumination, leftMoon);
 
   const LENGTH = 360;
@@ -73,12 +79,7 @@ const MoonShape = ({ illumination, leftMoon, setDetail }) => {
           >
             <LinearGradient
               style={{ width: 1, height: WIDTH }}
-              colors={[
-                "rgba(255,255,255,1)",
-                "rgba(255,255,0,1)",
-                "rgba(255,255,0,1)",
-                "rgba(255,255,255,1)",
-              ]}
+              colors={[MAIN_COLOR, SUB_COLOR, SUB_COLOR, MAIN_COLOR]}
               locations={[0, 0.4, 0.6, 1]}
             />
           </MoonPeace>
@@ -87,6 +88,7 @@ const MoonShape = ({ illumination, leftMoon, setDetail }) => {
       </MoonPeaceContainer>
       <MoonShadow
         style={[
+          { backgroundColor: BG_COLOR },
           {
             left: leftMoon
               ? illumination * RADIUS + MARGIN_TOP + 22
@@ -99,6 +101,7 @@ const MoonShape = ({ illumination, leftMoon, setDetail }) => {
             },
             shadowOpacity: 1,
             shadowRadius: 20,
+            shadowColor: BG_COLOR,
           },
         ]}
       />
