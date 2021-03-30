@@ -17,7 +17,7 @@ const DateTimePickerContainer = styled.TouchableOpacity``;
 const DateButton = styled.TouchableOpacity``;
 const DateButtonText = styled.Text`
   text-align: center;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 200;
   color: white;
 `;

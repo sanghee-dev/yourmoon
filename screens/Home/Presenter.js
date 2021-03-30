@@ -4,6 +4,7 @@ import { ActivityIndicator } from "react-native";
 import MoonShape from "../../components/MoonShape";
 import MoonName from "../../components/MoonName";
 import DatePick from "../../components/DatePick";
+import Detail from "../../components/Detail";
 
 const Container = styled.View`
   width: 100%;
@@ -20,8 +21,10 @@ const Presenter = ({
   fmdt,
   nnmdt,
   stage,
-  editing,
-  setEditing,
+  dfcoe,
+  dfs,
+  detail,
+  setDetail,
   leftMoon,
 }) => {
   return (
@@ -38,8 +41,13 @@ const Presenter = ({
           <MoonShape
             illumination={Math.round(illumination) / 100}
             leftMoon={leftMoon}
+            setDetail={setDetail}
           />
-          <DatePick time={time} setTime={setTime} />
+          {detail ? (
+            <DatePick time={time} setTime={setTime} />
+          ) : (
+            <Detail time={time} fmdt={fmdt} nnmdt={nnmdt} />
+          )}
         </>
       )}
     </Container>

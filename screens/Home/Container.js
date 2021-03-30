@@ -7,7 +7,7 @@ const Container = () => {
   const [loading, setLoading] = useState(true);
   const [time, setTime] = useState(new Date());
   const [data, setData] = useState([]);
-  const [editing, setEditing] = useState(false);
+  const [detail, setDetail] = useState(false);
   const [leftMoon, setLeftMoon] = useState();
 
   const getData = async () => {
@@ -42,8 +42,10 @@ const Container = () => {
       fmdt={data?.fm?.dt}
       nnmdt={data?.nnm?.dt}
       stage={data?.stage}
-      editing={editing}
-      setEditing={setEditing}
+      dfcoe={data?.dfcoe}
+      dfs={data?.dfs}
+      detail={detail}
+      setDetail={setDetail}
       leftMoon={leftMoon}
     />
   );

@@ -14,7 +14,7 @@ const MoonContainer = styled.View`
   border-radius: ${WIDTH / 2}px;
   overflow: hidden;
 `;
-const MoonPeaceContainer = styled.View`
+const MoonPeaceContainer = styled.TouchableOpacity`
   width: ${WIDTH}px;
   height: ${WIDTH}px;
   border-radius: ${WIDTH / 2}px;
@@ -26,13 +26,12 @@ const MoonPeace = styled.View`
   position: absolute;
 `;
 const MoonCenter = styled.View`
-  width: 70px;
-  height: 70px;
-  border-radius: 35px;
+  width: 84px;
+  height: 84px;
+  border-radius: 42px;
   background-color: "rgba(255,255,0,1)";
   position: relative;
-  bottom: ${WIDTH / 2 + 35}px;
-  left: ${WIDTH / 2 - 35}px;
+  top: ${RADIUS / 2}px;
 `;
 const MoonShadow = styled.View`
   width: ${RADIUS + 2}px;
@@ -43,7 +42,7 @@ const MoonShadow = styled.View`
   top: ${MARGIN_TOP}px;
 `;
 
-const MoonShape = ({ illumination, leftMoon }) => {
+const MoonShape = ({ illumination, leftMoon, setDetail }) => {
   console.log(illumination, leftMoon);
 
   const LENGTH = 360;
@@ -53,16 +52,18 @@ const MoonShape = ({ illumination, leftMoon }) => {
   }
 
   return (
-    <MoonContainer>
+    <MoonContainer onPress={() => setDetail((prev) => !prev)}>
       <MoonPeaceContainer
         style={[
           {
             transform: [{ scale: SCALE }],
           },
         ]}
+        onPress={() => setDetail((prev) => !prev)}
       >
         {moonPeaceArray.map((peace) => (
           <MoonPeace
+            key={peace}
             style={[
               {
                 transform: [{ rotate: `${1 * peace}deg` }],
@@ -81,8 +82,8 @@ const MoonShape = ({ illumination, leftMoon }) => {
             />
           </MoonPeace>
         ))}
+        <MoonCenter />
       </MoonPeaceContainer>
-      <MoonCenter />
       <MoonShadow
         style={[
           {
