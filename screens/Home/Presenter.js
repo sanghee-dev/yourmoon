@@ -36,7 +36,7 @@ const Presenter = ({
         <>
           <MoonName stage={stage} />
           <MoonShape
-            illumination={Math.round(illumination) / 100}
+            illumination={Math.round(illumination)}
             leftMoon={leftMoon}
           />
           <DatePick time={time} setTime={setTime} />
