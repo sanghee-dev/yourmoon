@@ -19,7 +19,7 @@ const Text = styled.Text`
   font-size: 20px;
 `;
 
-const Detail = ({ time, fmdt, nnmdt }) => {
+const MoonDetail = ({ time, fmdt, nnmdt }) => {
   console.log(time);
 
   const fmDate = (dt) => dt.substring(12, 15) + dt.substring(9, 11);
@@ -40,4 +40,4 @@ const Detail = ({ time, fmdt, nnmdt }) => {
   );
 };
 
-export default Detail;
+export default MoonDetail;

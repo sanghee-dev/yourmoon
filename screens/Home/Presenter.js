@@ -4,7 +4,7 @@ import { ActivityIndicator } from "react-native";
 import MoonShape from "../../components/MoonShape";
 import MoonName from "../../components/MoonName";
 import DatePick from "../../components/DatePick";
-import Detail from "../../components/Detail";
+import MoonDetail from "../../components/MoonDetail";
 
 const Container = styled.View`
   width: 100%;
@@ -46,7 +46,7 @@ const Presenter = ({
           {detail ? (
             <DatePick time={time} setTime={setTime} />
           ) : (
-            <Detail time={time} fmdt={fmdt} nnmdt={nnmdt} />
+            <MoonDetail time={time} fmdt={fmdt} nnmdt={nnmdt} />
           )}
         </>
       )}
