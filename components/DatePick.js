@@ -5,6 +5,8 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import { LinearGradient } from "expo-linear-gradient";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
+const PICKER_HEIGHT = 100;
+
 const Container = styled.View`
   justify-content: center;
   align-items: center;
@@ -42,7 +44,9 @@ const DatePick = ({ time, setTime }) => {
   return (
     <Container>
       <DateButton onPress={onPress} onLongPress={onLongPress}>
-        <DateButtonText style={{ marginBottom: show ? 20 : 200 }}>
+        <DateButtonText
+          style={{ marginBottom: show ? 20 : PICKER_HEIGHT + 20 }}
+        >
           {dateToString(time)}
         </DateButtonText>
       </DateButton>
@@ -50,7 +54,7 @@ const DatePick = ({ time, setTime }) => {
       {show && (
         <DateTimePickerContainer onPress={onPress}>
           <LinearGradient
-            style={{ width: WIDTH }}
+            style={{ width: WIDTH, justifyContent: "center" }}
             colors={[
               "rgba(255,255,255,0)",
               "rgba(255,255,255,1)",
@@ -59,7 +63,7 @@ const DatePick = ({ time, setTime }) => {
             locations={[0, 0.35, 1]}
           >
             <DateTimePicker
-              style={{ height: 180 }}
+              style={{ height: PICKER_HEIGHT }}
               value={time}
               mode="date"
               is24Hour={true}

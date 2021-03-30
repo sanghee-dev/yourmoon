@@ -10,6 +10,7 @@ const MoonPeaceContainer = styled.View`
   width: ${WIDTH}px;
   height: ${WIDTH}px;
   align-items: center;
+  margin-top: 40px;
 `;
 const MoonPeace = styled.View`
   width: ${WIDTH / 5}px;
@@ -17,12 +18,12 @@ const MoonPeace = styled.View`
   position: absolute;
 `;
 const MoonCenter = styled.View`
-  width: 90px;
-  height: 90px;
-  border-radius: 45px;
-  background-color: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  background-color: "rgba(255,255,0,1)";
   position: relative;
-  bottom: ${WIDTH / 2 + 45}px;
+  bottom: ${WIDTH / 2 + 40}px;
 `;
 
 const MoonShape = ({ illumination, leftMoon }) => {
@@ -34,7 +35,13 @@ const MoonShape = ({ illumination, leftMoon }) => {
 
   return (
     <>
-      <MoonPeaceContainer>
+      <MoonPeaceContainer
+        style={[
+          {
+            transform: [{ scale: 0.9 }],
+          },
+        ]}
+      >
         {moonPeaceArray.map((peace) => (
           <MoonPeace
             style={[
@@ -46,10 +53,10 @@ const MoonShape = ({ illumination, leftMoon }) => {
             <LinearGradient
               style={{ width: RADIUS, height: WIDTH }}
               colors={[
-                "rgba(255,255,255,0)",
                 "rgba(255,255,255,1)",
+                "rgba(255,255,0,1)",
+                "rgba(255,255,0,1)",
                 "rgba(255,255,255,1)",
-                "rgba(255,255,255,0)",
               ]}
               locations={[0, 0.4, 0.6, 1]}
             />
