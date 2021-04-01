@@ -17,17 +17,14 @@ const Text = styled.Text`
   font-size: 20px;
 `;
 
-const MoonDetail = ({ time, fmdt, nnmdt, FONT_COLOR }) => {
-  console.log(time);
+const MoonDetail = ({ fmdt, nnmdt, FONT_COLOR }) => {
+  console.log(fmdt.slice(-11, -5).slice(3));
+  console.log(nnmdt.slice(-11, -5));
 
   const fmDate = (dt) =>
-    dt.substring(11, 15).replace(" ", "") +
-    " " +
-    dt.substring(8, 11).replace("-", "");
+    dt.slice(-11, -5).slice(3) + " " + dt.slice(-11, -5).slice(0, 2);
   const nnmDate = (dt) =>
-    dt.substring(10, 14).replace(" ", "") +
-    " " +
-    dt.substring(8, 10).replace("-", "");
+    dt.slice(-11, -5).slice(3) + " " + dt.slice(-11, -5).slice(0, 2);
 
   return (
     <Container>
