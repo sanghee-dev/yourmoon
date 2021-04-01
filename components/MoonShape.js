@@ -50,8 +50,6 @@ const MoonShape = ({
   SUB_COLOR,
   BG_COLOR,
 }) => {
-  console.log(illumination, leftMoon);
-
   const LENGTH = 360;
   let moonPeaceArray = [];
   for (let i = 0; i < LENGTH; i++) {
