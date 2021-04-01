@@ -9,12 +9,13 @@ const Container = styled.View`
 `;
 const ColorBox = styled.TouchableOpacity`
   align-items: center;
-  margin: 0 16px;
+  margin: 0 12px;
 `;
 const Text = styled.Text`
   font-weight: 100;
   font-size: 20px;
   color: white;
+  margin-top: 2px;
 `;
 const YellowColor = styled.View`
   width: 40px;
