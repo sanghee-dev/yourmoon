@@ -58,9 +58,7 @@ const Container = () => {
       subColor={subColor}
       setSubColor={setSubColor}
       bgColor={bgColor}
-      setBgColor={setBgColor}
       fontColor={fontColor}
-      setFontColor={setFontColor}
     />
   );
 };

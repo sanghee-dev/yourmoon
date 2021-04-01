@@ -32,9 +32,7 @@ const Presenter = ({
   subColor,
   setSubColor,
   bgColor,
-  setBgColor,
   fontColor,
-  setFontColor,
 }) => {
   return (
     <Container
@@ -71,10 +69,6 @@ const Presenter = ({
               setMainColor={setMainColor}
               subColor={subColor}
               setSubColor={setSubColor}
-              bgColor={bgColor}
-              setBgColor={setBgColor}
-              fontColor={fontColor}
-              setFontColor={setFontColor}
             />
           )}
         </>
