@@ -9,35 +9,31 @@ const BackView = styled.View`
 `;
 
 const Swipe = ({ time, setTime, BG_COLOR }) => {
-  const [isChanging, setIsChanging] = useState(false);
-  const position = new Animated.ValueXY();
-  const GESTURE = 60;
+  const [xLength, setXLength] = useState(0);
 
+  const position = new Animated.ValueXY();
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onPanResponderMove: (evt, { dx }) => {
       position.setValue({ x: dx, y: 0 });
-      console.log(Math.abs(dx > GESTURE));
-      if (Math.abs(dx > GESTURE)) {
-        setIsChanging(true);
-        if (isChanging) {
-          const nextTime = new Date(time.getTime() + 86400000);
-          setTime(nextTime);
-        }
-        setIsChanging(false);
-      } else {
-        const prevTime = new Date(time.getTime() - 86400000);
-        setTime(prevTime);
-      }
+      setXLength(dx);
     },
     onPanResponderRelease: (evt, { dx }) => {
       Animated.spring(position, {
         toValue: {
-          x: dx > GESTURE ? WIDTH - 20 : dx < -GESTURE ? -WIDTH + 20 : 0,
+          x: 0,
           y: 0,
         },
-        bounciness: 8,
-      }).start();
+        useNativeDriver: true,
+      }).start(() => {
+        if (xLength > 10) {
+          const nextTime = new Date(time.getTime() + 86400000);
+          setTime(nextTime);
+        } else if (xLength < -10) {
+          const prevTime = new Date(time.getTime() - 86400000);
+          setTime(prevTime);
+        }
+      });
     },
   });
 
