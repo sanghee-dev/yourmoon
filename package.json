@@ -16,6 +16,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "^0.64.0",
+    "react-native-color-picker": "^0.6.0",
     "react-native-web": "~0.13.12",
     "styled-components": "^5.2.1"
   },

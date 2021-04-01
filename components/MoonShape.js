@@ -5,7 +5,6 @@ import { LinearGradient } from "expo-linear-gradient";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 const SCALE = 0.8;
-const RADIUS = WIDTH * SCALE;
 const SMALL_RADIUS = WIDTH * SCALE * 0.3;
 const MARGIN_TOP = 40;
 
@@ -45,10 +44,13 @@ const MoonShadow = styled.View`
 const MoonShape = ({
   illumination,
   leftMoon,
+  detail,
   setDetail,
-  MAIN_COLOR,
-  SUB_COLOR,
-  BG_COLOR,
+  range,
+  setRange,
+  mainColor,
+  subColor,
+  bgColor,
 }) => {
   const LENGTH = 360;
   let moonPeaceArray = [];
@@ -58,14 +60,34 @@ const MoonShape = ({
 
   return (
     <MoonContainer
-      onPress={() => setDetail((prev) => !prev)}
+      onPress={() => {
+        setRange(false);
+        if (!range) {
+          setDetail((prev) => !prev);
+        }
+      }}
+      onLongPress={() => {
+        setRange((prev) => !prev);
+        setDetail(false);
+      }}
       style={[
         {
           transform: [{ scale: SCALE }],
         },
       ]}
     >
-      <MoonPeaceContainer onPress={() => setDetail((prev) => !prev)}>
+      <MoonPeaceContainer
+        onPress={() => {
+          setRange(false);
+          if (!range) {
+            setDetail((prev) => !prev);
+          }
+        }}
+        onLongPress={() => {
+          setRange((prev) => !prev);
+          setDetail(false);
+        }}
+      >
         {moonPeaceArray.map((peace) => (
           <MoonPeace
             key={peace}
@@ -77,16 +99,16 @@ const MoonShape = ({
           >
             <LinearGradient
               style={{ width: 1, height: WIDTH }}
-              colors={[MAIN_COLOR, SUB_COLOR, SUB_COLOR, MAIN_COLOR]}
+              colors={[subColor, mainColor, mainColor, subColor]}
               locations={[0, 0.4, 0.6, 1]}
             />
           </MoonPeace>
         ))}
-        <MoonCenter />
+        <MoonCenter style={{ backgroundColor: mainColor }} />
       </MoonPeaceContainer>
       <MoonShadow
         style={[
-          { backgroundColor: BG_COLOR },
+          { backgroundColor: bgColor },
           {
             left: leftMoon ? illumination * WIDTH : -illumination * WIDTH,
           },
@@ -97,7 +119,7 @@ const MoonShape = ({
             },
             shadowOpacity: 1,
             shadowRadius: 20,
-            shadowColor: BG_COLOR,
+            shadowColor: bgColor,
           },
         ]}
       />

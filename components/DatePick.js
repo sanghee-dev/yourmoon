@@ -15,7 +15,7 @@ const DateButtonText = styled.Text`
   color: white;
 `;
 
-const DatePick = ({ time, setTime, FONT_COLOR }) => {
+const DatePick = ({ time, setTime, fontColor }) => {
   const dateToString = (date) => {
     const newDate = new Date(date);
     const showDate = newDate.toString().substring(4, 15);
@@ -32,7 +32,7 @@ const DatePick = ({ time, setTime, FONT_COLOR }) => {
       <DateButton onPress={onPress}>
         <DateButtonText
           style={{
-            color: FONT_COLOR,
+            color: fontColor,
           }}
         >
           {dateToString(time)}

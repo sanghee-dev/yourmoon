@@ -8,7 +8,13 @@ const Container = () => {
   const [time, setTime] = useState(new Date());
   const [data, setData] = useState([]);
   const [detail, setDetail] = useState(false);
+  const [range, setRange] = useState(false);
   const [leftMoon, setLeftMoon] = useState();
+
+  const [mainColor, setMainColor] = useState("rgb(255,255,0)");
+  const [subColor, setSubColor] = useState("rgb(255,255,255)");
+  const [bgColor, setBgColor] = useState("rgb(0,0,0)");
+  const [fontColor, setFontColor] = useState("rgb(255,255,255)");
 
   const getData = async () => {
     try {
@@ -44,7 +50,17 @@ const Container = () => {
       stage={data?.stage}
       detail={detail}
       setDetail={setDetail}
+      range={range}
+      setRange={setRange}
       leftMoon={leftMoon}
+      mainColor={mainColor}
+      setMainColor={setMainColor}
+      subColor={subColor}
+      setSubColor={setSubColor}
+      bgColor={bgColor}
+      setBgColor={setBgColor}
+      fontColor={fontColor}
+      setFontColor={setFontColor}
     />
   );
 };

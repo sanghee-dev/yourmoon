@@ -8,7 +8,7 @@ const BackView = styled.View`
   height: 100%;
 `;
 
-const Swipe = ({ time, setTime, BG_COLOR }) => {
+const Swipe = ({ time, setTime, bgColor }) => {
   const [xLength, setXLength] = useState(0);
 
   const position = new Animated.ValueXY();
@@ -46,7 +46,7 @@ const Swipe = ({ time, setTime, BG_COLOR }) => {
         height: HEIGHT,
         position: "absolute",
         zIndex: -1,
-        backgroundColor: BG_COLOR,
+        backgroundColor: bgColor,
       }}
       {...panResponder.panHandlers}
     >

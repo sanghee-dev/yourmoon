@@ -17,10 +17,7 @@ const Text = styled.Text`
   font-size: 20px;
 `;
 
-const MoonDetail = ({ fmdt, nnmdt, FONT_COLOR }) => {
-  console.log(fmdt.slice(-11, -5).slice(3));
-  console.log(nnmdt.slice(-11, -5));
-
+const MoonDetail = ({ fmdt, nnmdt, fontColor }) => {
   const fmDate = (dt) =>
     dt.slice(-11, -5).slice(3) + " " + dt.slice(-11, -5).slice(0, 2);
   const nnmDate = (dt) =>
@@ -29,13 +26,13 @@ const MoonDetail = ({ fmdt, nnmdt, FONT_COLOR }) => {
   return (
     <Container>
       <DetailTime>
-        <Title style={{ color: FONT_COLOR, opacity: 0.7 }}>Full Moon</Title>
-        <Text style={{ color: FONT_COLOR }}>{`     ${fmDate(fmdt)}`}</Text>
+        <Title style={{ color: fontColor, opacity: 0.7 }}>Full Moon</Title>
+        <Text style={{ color: fontColor }}>{`     ${fmDate(fmdt)}`}</Text>
       </DetailTime>
 
       <DetailTime>
-        <Title style={{ color: FONT_COLOR, opacity: 0.7 }}>New Moon</Title>
-        <Text style={{ color: FONT_COLOR }}>{`   ${nnmDate(nnmdt)}`}</Text>
+        <Title style={{ color: fontColor, opacity: 0.7 }}>New Moon</Title>
+        <Text style={{ color: fontColor }}>{`   ${nnmDate(nnmdt)}`}</Text>
       </DetailTime>
     </Container>
   );

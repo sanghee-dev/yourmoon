@@ -5,12 +5,8 @@ import MoonShape from "../../components/MoonShape";
 import MoonName from "../../components/MoonName";
 import DatePick from "../../components/DatePick";
 import MoonDetail from "../../components/MoonDetail";
+import ColorRange from "../../components/ColorRange";
 import Swipe from "../../components/Swipe";
-
-const MAIN_COLOR = "rgb(255,255,255)";
-const SUB_COLOR = "rgb(255,255,0)";
-const BG_COLOR = "rgb(0,0,0)";
-const FONT_COLOR = "rgb(255,255,255)";
 
 const Container = styled.View`
   width: 100%;
@@ -28,36 +24,62 @@ const Presenter = ({
   stage,
   detail,
   setDetail,
+  range,
+  setRange,
   leftMoon,
+  mainColor,
+  setMainColor,
+  subColor,
+  setSubColor,
+  bgColor,
+  setBgColor,
+  fontColor,
+  setFontColor,
 }) => {
   return (
     <Container
       style={{
         justifyContent: loading ? "center" : "",
-        backgroundColor: BG_COLOR,
+        backgroundColor: bgColor,
       }}
     >
       {loading ? (
-        <ActivityIndicator size="small" color="white" />
+        <ActivityIndicator size="small" color={subColor} />
       ) : (
         <>
-          <MoonName stage={stage} FONT_COLOR={FONT_COLOR} />
+          <MoonName stage={stage} fontColor={fontColor} />
           <MoonShape
             illumination={Math.round(illumination * 10) / 1000}
             leftMoon={leftMoon}
+            detail={detail}
             setDetail={setDetail}
-            MAIN_COLOR={MAIN_COLOR}
-            SUB_COLOR={SUB_COLOR}
-            BG_COLOR={BG_COLOR}
+            range={range}
+            setRange={setRange}
+            mainColor={mainColor}
+            subColor={subColor}
+            bgColor={bgColor}
           />
-          {!detail ? (
-            <DatePick time={time} setTime={setTime} FONT_COLOR={FONT_COLOR} />
-          ) : (
-            <MoonDetail fmdt={fmdt} nnmdt={nnmdt} FONT_COLOR={FONT_COLOR} />
+          {!detail && !range && (
+            <DatePick time={time} setTime={setTime} fontColor={fontColor} />
+          )}
+          {detail && (
+            <MoonDetail fmdt={fmdt} nnmdt={nnmdt} fontColor={fontColor} />
+          )}
+          {range && (
+            <ColorRange
+              mainColor={mainColor}
+              setMainColor={setMainColor}
+              subColor={subColor}
+              setSubColor={setSubColor}
+              bgColor={bgColor}
+              setBgColor={setBgColor}
+              fontColor={fontColor}
+              setFontColor={setFontColor}
+            />
           )}
         </>
       )}
-      <Swipe time={time} setTime={setTime} BG_COLOR={BG_COLOR} />
+      <Swipe time={time} setTime={setTime} bgColor={bgColor} />
     </Container>
   );
 };
