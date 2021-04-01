@@ -53,12 +53,7 @@ const Presenter = ({
           {!detail ? (
             <DatePick time={time} setTime={setTime} FONT_COLOR={FONT_COLOR} />
           ) : (
-            <MoonDetail
-              time={time}
-              fmdt={fmdt}
-              nnmdt={nnmdt}
-              FONT_COLOR={FONT_COLOR}
-            />
+            <MoonDetail fmdt={fmdt} nnmdt={nnmdt} FONT_COLOR={FONT_COLOR} />
           )}
         </>
       )}
