@@ -14,11 +14,11 @@ const Swipe = ({ time, setTime, bgColor }) => {
   const position = new Animated.ValueXY();
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: (evt, { dx }) => {
+    onPanResponderMove: (_, { dx }) => {
       position.setValue({ x: dx, y: 0 });
       setXLength(dx);
     },
-    onPanResponderRelease: (evt, { dx }) => {
+    onPanResponderRelease: (_, __) => {
       Animated.spring(position, {
         toValue: {
           x: 0,
