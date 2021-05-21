@@ -1,15 +1,9 @@
 import React from "react";
 import styled from "styled-components/native";
 import { ActivityIndicator } from "react-native";
-import {
-  useLoading,
-  useTime,
-  useMoon,
-  useRange,
-  useIsLeft,
-  useColors,
-} from "../context/contextFn";
+import { useLoading, useColors } from "../context/contextFn";
 import MoonName from "../components/MoonName";
+import MoonShape from "../components/MoonShape";
 
 const Container = styled.View`
   height: 100%;
@@ -17,10 +11,6 @@ const Container = styled.View`
 
 const Moon = () => {
   const { loading, setLoading } = useLoading();
-  const { time, setTime } = useTime();
-  const { moon, setMoon } = useMoon();
-  const { range, setRange } = useRange();
-  const { isLeft, setIsLeft } = useIsLeft();
   const { colors, setColors } = useColors();
 
   return (
@@ -33,7 +23,13 @@ const Moon = () => {
       {loading ? (
         <ActivityIndicator size="small" color={colors.subColor} />
       ) : (
-        <MoonName />
+        <>
+          <MoonName />
+          <MoonShape />
+          {/* <DatePick /> */}
+          {/* <MoonDetail /> */}
+          {/* <ColorRange /> */}
+        </>
       )}
     </Container>
   );

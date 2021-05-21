@@ -2,13 +2,15 @@ import React from "react";
 import styled from "styled-components/native";
 import { Dimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useMoon, useIsLeft, useColors } from "../context/contextFn";
 
-const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
+const { width: WIDTH } = Dimensions.get("window");
 const SCALE = 0.8;
 const SMALL_RADIUS = WIDTH * SCALE * 0.3;
 const MARGIN_TOP = 40;
+const COUNT = 360;
 
-const MoonContainer = styled.TouchableOpacity`
+const Container = styled.TouchableOpacity`
   width: ${WIDTH}px;
   height: ${WIDTH}px;
   border-radius: ${WIDTH / 2}px;
@@ -41,51 +43,31 @@ const MoonShadow = styled.View`
   top: ${MARGIN_TOP - MARGIN_TOP}px;
 `;
 
-const MoonShape = ({
-  isLeft,
-  setMoon,
-  range,
-  setRange,
-  mainColor,
-  subColor,
-  bgColor,
-}) => {
-  const LENGTH = 360;
+const MoonShape = () => {
+  const {
+    moon: { illumination },
+  } = useMoon();
+  const { isLeft } = useIsLeft();
+  const {
+    colors: { mainColor, subColor, bgColor },
+  } = useColors();
+
   let moonPeaceArray = [];
-  for (let i = 0; i < LENGTH; i++) {
+  for (let i = 0; i < COUNT; i++) {
     moonPeaceArray.push(i);
   }
 
   return (
-    <MoonContainer
-      onPress={() => {
-        setRange(false);
-        if (!range) {
-          setMoon((prev) => !prev);
-        }
-      }}
-      onLongPress={() => {
-        setRange((prev) => !prev);
-        setMoon(false);
-      }}
+    <Container
+      onPress={() => {}}
+      onLongPress={() => {}}
       style={[
         {
           transform: [{ scale: SCALE }],
         },
       ]}
     >
-      <MoonPeaceContainer
-        onPress={() => {
-          setRange(false);
-          if (!range) {
-            setMoon((prev) => !prev);
-          }
-        }}
-        onLongPress={() => {
-          setRange((prev) => !prev);
-          setMoon(false);
-        }}
-      >
+      <MoonPeaceContainer>
         {moonPeaceArray.map((peace) => (
           <MoonPeace
             key={peace}
@@ -109,8 +91,8 @@ const MoonShape = ({
           { backgroundColor: bgColor },
           {
             left: isLeft
-              ? (Math.round(moon?.illumination * 10) / 1000) * WIDTH
-              : (-Math.round(moon?.illumination * 10) / 1000) * WIDTH,
+              ? (Math.round(illumination * 10) / 1000) * WIDTH
+              : (-Math.round(illumination * 10) / 1000) * WIDTH,
           },
           {
             shadowOffset: {
@@ -123,7 +105,7 @@ const MoonShape = ({
           },
         ]}
       />
-    </MoonContainer>
+    </Container>
   );
 };
 

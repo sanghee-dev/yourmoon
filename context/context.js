@@ -8,7 +8,7 @@ const MoonContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [time, setTime] = useState(new Date());
   const [moon, setMoon] = useState([]);
-  const [range, setRange] = useState(false);
+  const [showRange, setShowRange] = useState(false);
   const [isLeft, setIsLeft] = useState(false);
   const [colors, setColors] = useState({
     mainColor: "rgb(255,255,0)",
@@ -59,7 +59,7 @@ const MoonContextProvider = ({ children }) => {
         loading: { loading, setLoading },
         time: { time, setTime },
         moon: { moon, setMoon },
-        range: { range, setRange },
+        showRange: { showRange, setShowRange },
         isLeft: { isLeft, setIsLeft },
         colors: { colors, setColors },
       }}
