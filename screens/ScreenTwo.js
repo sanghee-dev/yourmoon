@@ -10,7 +10,7 @@ const Text = styled.Text`
   text-align: center;
 `;
 
-const Setting = () => {
+const ScreenTwo = () => {
   const { loading } = useLoading();
   const {
     colors: { bgColor, fontColor },
@@ -23,9 +23,9 @@ const Setting = () => {
         backgroundColor: bgColor,
       }}
     >
-      <Text style={{ color: fontColor }}>Setting</Text>
+      <Text style={{ color: fontColor }}>ScreenTwo</Text>
     </Container>
   );
 };
 
-export default Setting;
+export default ScreenTwo;

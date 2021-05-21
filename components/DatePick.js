@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
+import { useTime, useColors } from "../context/contextFn";
 
 const Container = styled.View`
   justify-content: center;
@@ -15,7 +16,12 @@ const DateButtonText = styled.Text`
   color: white;
 `;
 
-const DatePick = ({ time, setTime, fontColor }) => {
+const DatePick = ({ time, setTime }) => {
+  const { time, setTime } = useTime();
+  const {
+    colors: { mainColor, subColor, bgColor, fontColor },
+  } = useColors();
+
   const dateToString = (date) => {
     const newDate = new Date(date);
     const showDate = newDate.toString().substring(4, 15);

@@ -1,13 +1,13 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import Stack from "./navigation/Stack";
+import StackNav from "./navigation/StackNav";
 import MoonContextProvider from "./context/context";
 
 const App = () => {
   return (
     <MoonContextProvider>
       <NavigationContainer>
-        <Stack />
+        <StackNav />
       </NavigationContainer>
     </MoonContextProvider>
   );

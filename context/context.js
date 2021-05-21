@@ -7,7 +7,12 @@ export const MoonContext = createContext();
 const MoonContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [time, setTime] = useState(new Date());
-  const [moon, setMoon] = useState([]);
+  const [moon, setMoon] = useState({
+    illumination: 0,
+    stage: "",
+    fmDt: 0,
+    nnmDt: 0,
+  });
   const [showRange, setShowRange] = useState(false);
   const [isLeft, setIsLeft] = useState(false);
   const [colors, setColors] = useState({

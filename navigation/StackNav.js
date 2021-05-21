@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Tab from "./Tab";
+import TabNav from "./TabNav";
 
 const Stack = createStackNavigator();
 
@@ -17,13 +17,13 @@ export default () => {
         headerTitleAlign: "center",
         headerTintColor: "white",
         headerTitleStyle: {
-          fontSize: 24,
+          fontSize: 32,
           fontWeight: "100",
         },
         headerBackTitleVisible: false,
       }}
     >
-      <Stack.Screen name="Tab" component={Tab} />
+      <Stack.Screen name="TabNav" component={TabNav} />
     </Stack.Navigator>
   );
 };

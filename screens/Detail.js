@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
+import { useLoading, useColors } from "../context/contextFn";
 
 const Container = styled.View`
   height: 100%;
@@ -10,9 +11,19 @@ const Text = styled.Text`
 `;
 
 const Detail = () => {
+  const { loading } = useLoading();
+  const {
+    colors: { bgColor, fontColor },
+  } = useColors();
+
   return (
-    <Container>
-      <Text>Detail</Text>
+    <Container
+      style={{
+        justifyContent: loading ? "center" : "",
+        backgroundColor: bgColor,
+      }}
+    >
+      <Text style={{ color: fontColor }}>Detail</Text>
     </Container>
   );
 };
