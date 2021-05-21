@@ -1,4 +1,5 @@
 import React from "react";
+import { StatusBar } from "react-native";
 import styled from "styled-components/native";
 import { useLoading, useColors } from "../context/contextFn";
 
@@ -23,6 +24,7 @@ const ScreenTwo = () => {
         backgroundColor: bgColor,
       }}
     >
+      <StatusBar barStyle="light-content" hidden={true} />
       <Text style={{ color: fontColor }}>ScreenTwo</Text>
     </Container>
   );

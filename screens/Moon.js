@@ -1,6 +1,6 @@
 import React from "react";
+import { ActivityIndicator, StatusBar } from "react-native";
 import styled from "styled-components/native";
-import { ActivityIndicator } from "react-native";
 import { useLoading, useColors } from "../context/contextFn";
 import MoonShape from "../components/MoonShape";
 
@@ -22,6 +22,7 @@ const Moon = () => {
         backgroundColor: bgColor,
       }}
     >
+      <StatusBar barStyle="light-content" hidden={true} />
       {loading ? (
         <ActivityIndicator size="small" color={subColor} />
       ) : (

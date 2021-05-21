@@ -8,7 +8,7 @@ const { width: WIDTH } = Dimensions.get("window");
 const SCALE = 0.8;
 const SMALL_RADIUS = WIDTH * SCALE * 0.3;
 const MARGIN_TOP = 40;
-const COUNT = 360;
+const PIECES = 160;
 
 const Container = styled.TouchableOpacity`
   width: ${WIDTH}px;
@@ -53,7 +53,7 @@ const MoonShape = () => {
   } = useColors();
 
   let moonPeaceArray = [];
-  for (let i = 0; i < COUNT; i++) {
+  for (let i = 0; i < PIECES; i++) {
     moonPeaceArray.push(i);
   }
 
@@ -68,12 +68,12 @@ const MoonShape = () => {
       ]}
     >
       <MoonPeaceContainer>
-        {moonPeaceArray.map((peace) => (
+        {moonPeaceArray.map((idx) => (
           <MoonPeace
-            key={peace}
+            key={idx}
             style={[
               {
-                transform: [{ rotate: `${1 * peace}deg` }],
+                transform: [{ rotate: `${(360 / PIECES) * idx}deg` }],
               },
             ]}
           >
