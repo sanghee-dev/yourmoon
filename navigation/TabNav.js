@@ -29,6 +29,20 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
         return "moon-waxing-gibbous";
     }
   };
+  const getMarginBottom = (screenName) => {
+    switch (screenName) {
+      case "Moon":
+        return 0;
+      case "Detail":
+        return 40;
+      case "Setting":
+        return 40;
+      case "ScreenOne":
+        return 8;
+      case "ScreenTwo":
+        return 8;
+    }
+  };
   const capitalize = (str) => str?.charAt(0).toUpperCase() + str.slice(1);
 
   useLayoutEffect(() => {
@@ -52,7 +66,10 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
             name={getIconName(screenName)}
             size={24}
             color={"rgb(200, 200, 200)"}
-            style={{ opacity: focused ? 1 : 0.5 }}
+            style={{
+              opacity: focused ? 1 : 0.5,
+              marginBottom: getMarginBottom(screenName),
+            }}
           />
         ),
       })}
@@ -61,7 +78,7 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
         style: {
           backgroundColor: "rgb(0, 0, 0)",
           borderTopWidth: 0,
-          height: 80,
+          height: 100,
         },
       }}
       initialRouteName="Moon"
