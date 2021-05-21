@@ -14,10 +14,10 @@ export default () => {
             height: 0,
           },
         },
-        headerTitleAlign: "left",
+        headerTitleAlign: "center",
         headerTintColor: "white",
         headerTitleStyle: {
-          fontSize: 20,
+          fontSize: 24,
           fontWeight: "100",
         },
         headerBackTitleVisible: false,

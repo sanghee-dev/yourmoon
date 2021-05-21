@@ -19,7 +19,7 @@ const DatePick = ({ time, setTime, fontColor }) => {
   const dateToString = (date) => {
     const newDate = new Date(date);
     const showDate = newDate.toString().substring(4, 15);
-    return showDate.charAt(4) === "0"
+    return showDate?.charAt(4) === "0"
       ? showDate.slice(0, 4) + showDate.slice(5)
       : showDate;
   };

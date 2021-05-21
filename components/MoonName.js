@@ -1,17 +1,24 @@
 import React from "react";
 import styled from "styled-components/native";
+import { useMoon, useColors } from "../context/contextFn";
 
 const Text = styled.Text`
   font-weight: 100;
   font-size: 40px;
-  margin-top: 80px;
-  margin-bottom: 30px;
+  text-align: center;
 `;
 
-const MoonName = ({ stage, fontColor }) => {
-  const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+const MoonName = () => {
+  const {
+    moon: { stage },
+  } = useMoon();
+  const { colors } = useColors();
 
-  return <Text style={{ color: fontColor }}>{capitalize(stage)} Moon</Text>;
+  const capitalize = (str) => str?.charAt(0).toUpperCase() + str.slice(1);
+
+  return (
+    <Text style={{ color: colors.fontColor }}>{capitalize(stage)} Moon</Text>
+  );
 };
 
 export default MoonName;

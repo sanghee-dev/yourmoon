@@ -42,10 +42,8 @@ const MoonShadow = styled.View`
 `;
 
 const MoonShape = ({
-  illumination,
-  leftMoon,
-  detail,
-  setDetail,
+  isLeft,
+  setMoon,
   range,
   setRange,
   mainColor,
@@ -63,12 +61,12 @@ const MoonShape = ({
       onPress={() => {
         setRange(false);
         if (!range) {
-          setDetail((prev) => !prev);
+          setMoon((prev) => !prev);
         }
       }}
       onLongPress={() => {
         setRange((prev) => !prev);
-        setDetail(false);
+        setMoon(false);
       }}
       style={[
         {
@@ -80,12 +78,12 @@ const MoonShape = ({
         onPress={() => {
           setRange(false);
           if (!range) {
-            setDetail((prev) => !prev);
+            setMoon((prev) => !prev);
           }
         }}
         onLongPress={() => {
           setRange((prev) => !prev);
-          setDetail(false);
+          setMoon(false);
         }}
       >
         {moonPeaceArray.map((peace) => (
@@ -110,7 +108,9 @@ const MoonShape = ({
         style={[
           { backgroundColor: bgColor },
           {
-            left: leftMoon ? illumination * WIDTH : -illumination * WIDTH,
+            left: isLeft
+              ? (Math.round(moon?.illumination * 10) / 1000) * WIDTH
+              : (-Math.round(moon?.illumination * 10) / 1000) * WIDTH,
           },
           {
             shadowOffset: {

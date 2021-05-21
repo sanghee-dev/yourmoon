@@ -34,7 +34,14 @@ const WhiteColor = styled.View`
   top: 20px;
 `;
 
-const ColorRange = ({ mainColor, setMainColor, subColor, setSubColor }) => {
+const ColorRange = ({
+  mainColor,
+  setMainColor,
+  subColor,
+  //
+  colors,
+  setColors,
+}) => {
   const [firstChanged, setFirstChanged] = useState(false);
   const [secondChanged, setSecondChanged] = useState(false);
 
@@ -59,7 +66,7 @@ const ColorRange = ({ mainColor, setMainColor, subColor, setSubColor }) => {
 
       <ColorBox
         onLongPress={() => {
-          setSubColor("rgb(255,255,255)");
+          setColors({ ...colors, subColor: "rgb(255,255,255)" });
           setSecondChanged(false);
         }}
       >
@@ -67,7 +74,9 @@ const ColorRange = ({ mainColor, setMainColor, subColor, setSubColor }) => {
           style={{ width: 80, height: 80 }}
           hideSliders={true}
           defaultColor="rgb(255,255,0)"
-          onColorSelected={(color) => setSubColor(color)}
+          onColorSelected={(subColor) =>
+            setColors({ ...colors, subColor: subColor })
+          }
           onColorChange={() => setSecondChanged(true)}
         />
         <Text>Edge</Text>

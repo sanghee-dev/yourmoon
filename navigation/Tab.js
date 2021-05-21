@@ -1,10 +1,10 @@
 import React, { useLayoutEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Platform } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import Moon from "../screens/Moon";
 import Detail from "../screens/Detail";
 import Setting from "../screens/Setting";
-import { Ionicons } from "@expo/vector-icons";
-import { Platform } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
