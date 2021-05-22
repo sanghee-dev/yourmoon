@@ -8,8 +8,6 @@ import CenterLine from "../components/CenterLine";
 
 const Container = styled.View`
   flex: 1;
-
-  padding-top: 80px;
 `;
 
 const Home = () => {
