@@ -3,13 +3,16 @@ import { ActivityIndicator, StatusBar } from "react-native";
 import styled from "styled-components/native";
 import { useLoading, useColors } from "../context/contextFn";
 import MoonShape from "../components/MoonShape";
+import Ellipse from "../components/Ellipse";
+import CenterLine from "../components/CenterLine";
 
 const Container = styled.View`
-  height: 100%;
+  flex: 1;
+
   padding-top: 80px;
 `;
 
-const Moon = () => {
+const Home = () => {
   const { loading } = useLoading();
   const {
     colors: { subColor, bgColor },
@@ -28,13 +31,12 @@ const Moon = () => {
       ) : (
         <>
           <MoonShape />
-          {/* <DatePick /> */}
-          {/* <MoonDetail /> */}
-          {/* <ColorRange /> */}
+          <Ellipse />
+          <CenterLine />
         </>
       )}
     </Container>
   );
 };
 
-export default Moon;
+export default Home;

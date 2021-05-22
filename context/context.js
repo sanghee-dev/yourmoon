@@ -16,10 +16,10 @@ const MoonContextProvider = ({ children }) => {
   const [showRange, setShowRange] = useState(false);
   const [isLeft, setIsLeft] = useState(false);
   const [colors, setColors] = useState({
-    mainColor: "rgb(255,255,0)",
-    subColor: "rgb(255,255,255)",
-    bgColor: "rgb(0,0,0)",
-    fontColor: "rgb(255,255,255)",
+    mainColor: "rgb(255, 255, 255)",
+    subColor: "rgb(100, 100, 100)",
+    bgColor: "rgb(0, 0, 0)",
+    fontColor: "rgb(255, 255, 255)",
   });
 
   const getMoon = async () => {

@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import Moon from "../screens/Moon";
+import Home from "../screens/Home";
 import Detail from "../screens/Detail";
 import Setting from "../screens/Setting";
 import ScreenOne from "../screens/ScreenOne";
@@ -17,7 +17,7 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
 
   const getIconName = (screenName) => {
     switch (screenName) {
-      case "Moon":
+      case "Home":
         return "moon-full";
       case "Detail":
         return "moon-waning-crescent";
@@ -31,12 +31,12 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
   };
   const getMarginBottom = (screenName) => {
     switch (screenName) {
-      case "Moon":
+      case "Home":
         return 0;
       case "Detail":
-        return 40;
+        return 48;
       case "Setting":
-        return 40;
+        return 48;
       case "ScreenOne":
         return 8;
       case "ScreenTwo":
@@ -50,7 +50,7 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
     if (mounted) {
       setOptions({
         title:
-          state?.routeNames[state.index] === "Moon"
+          state?.routeNames[state.index] === "Home"
             ? `${capitalize(stage)} Moon`
             : state?.routeNames[state.index] || "Moon",
       });
@@ -65,9 +65,9 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
           <MaterialCommunityIcons
             name={getIconName(screenName)}
             size={24}
-            color={"rgb(200, 200, 200)"}
+            color={"rgb(255, 255, 255)"}
             style={{
-              opacity: focused ? 1 : 0.5,
+              opacity: focused ? 0.9 : 0.4,
               marginBottom: getMarginBottom(screenName),
             }}
           />
@@ -76,16 +76,17 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
       tabBarOptions={{
         showLabel: false,
         style: {
-          backgroundColor: "rgb(0, 0, 0)",
+          backgroundColor: "transparent",
+          position: "absolute",
           borderTopWidth: 0,
           height: 100,
         },
       }}
-      initialRouteName="Moon"
+      initialRouteName="Home"
     >
       <Tab.Screen name="Detail" component={Detail} />
       <Tab.Screen name="ScreenOne" component={ScreenOne} />
-      <Tab.Screen name="Moon" component={Moon} />
+      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="ScreenTwo" component={ScreenTwo} />
       <Tab.Screen name="Setting" component={Setting} />
     </Tab.Navigator>
