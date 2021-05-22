@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components/native";
 import { Dimensions } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { useMoon, useIsLeft, useColors } from "../context/contextFn";
+import {
+  useMoon,
+  useIsLeft,
+  useColors,
+  useIsDarkMode,
+} from "../context/contextFn";
 
 const { width: WIDTH } = Dimensions.get("window");
 const SCALE = 0.8;
@@ -50,8 +55,9 @@ const MoonShape = () => {
   } = useMoon();
   const { isLeft } = useIsLeft();
   const {
-    colors: { mainColor, subColor, bgColor },
+    colors: { mainColor, subColor },
   } = useColors();
+  const { isDarkMode } = useIsDarkMode;
 
   let moonPeaceArray = [];
   for (let i = 0; i < PIECES; i++) {
@@ -89,7 +95,7 @@ const MoonShape = () => {
       </MoonPeaceContainer>
       <MoonShadow
         style={[
-          { backgroundColor: bgColor },
+          { backgroundColor: isDarkMode ? "white" : "black" },
           {
             left: isLeft
               ? (Math.round(illumination * 10) / 1000) * WIDTH
@@ -102,7 +108,7 @@ const MoonShape = () => {
             },
             shadowOpacity: 1,
             shadowRadius: 20,
-            shadowColor: bgColor,
+            shadowColor: isDarkMode ? "white" : "black",
           },
         ]}
       />

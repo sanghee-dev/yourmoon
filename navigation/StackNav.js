@@ -1,21 +1,24 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import TabNav from "./TabNav";
+import { useIsDarkMode } from "../context/contextFn";
 
 const Stack = createStackNavigator();
 
-export default () => {
+const StackNav = () => {
+  const { isDarkMode } = useIsDarkMode();
+
   return (
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: "rgb(0, 0, 0)",
+          backgroundColor: isDarkMode ? "black" : "white",
           shadowOffset: {
             height: 0,
           },
         },
         headerTitleAlign: "center",
-        headerTintColor: "white",
+        headerTintColor: isDarkMode ? "white" : "black",
         headerTitleStyle: {
           fontSize: 32,
           fontWeight: "100",
@@ -27,3 +30,5 @@ export default () => {
     </Stack.Navigator>
   );
 };
+
+export default StackNav;

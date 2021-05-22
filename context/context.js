@@ -13,14 +13,12 @@ const MoonContextProvider = ({ children }) => {
     fmDt: 0,
     nnmDt: 0,
   });
-  const [showRange, setShowRange] = useState(false);
   const [isLeft, setIsLeft] = useState(false);
   const [colors, setColors] = useState({
     mainColor: "rgb(255, 255, 255)",
     subColor: "rgb(100, 100, 100)",
-    bgColor: "rgb(0, 0, 0)",
-    fontColor: "rgb(255, 255, 255)",
   });
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const getMoon = async () => {
     try {
@@ -64,9 +62,9 @@ const MoonContextProvider = ({ children }) => {
         loading: { loading, setLoading },
         time: { time, setTime },
         moon: { moon, setMoon },
-        showRange: { showRange, setShowRange },
         isLeft: { isLeft, setIsLeft },
         colors: { colors, setColors },
+        isDarkMode: { isDarkMode, setIsDarkMode },
       }}
     >
       {children}

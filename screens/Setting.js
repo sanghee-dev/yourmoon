@@ -1,31 +1,42 @@
-import React from "react";
-import { StatusBar } from "react-native";
+import React, { useState } from "react";
+
+import { StatusBar, Switch } from "react-native";
 import styled from "styled-components/native";
-import { useLoading, useColors } from "../context/contextFn";
+import { useColors, useIsDarkMode } from "../context/contextFn";
 
 const Container = styled.View`
   height: 100%;
 `;
 const Text = styled.Text`
   font-weight: 100;
+  font-size: 20px;
   text-align: center;
 `;
 
 const Setting = () => {
-  const { loading } = useLoading();
   const {
-    colors: { bgColor, fontColor },
+    colors: { fontColor },
   } = useColors();
+  const { isDarkMode } = useIsDarkMode();
+
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
   return (
     <Container
       style={{
-        justifyContent: loading ? "center" : "",
-        backgroundColor: bgColor,
+        backgroundColor: isDarkMode ? "black" : "white",
       }}
     >
       <StatusBar barStyle="light-content" hidden={true} />
       <Text style={{ color: fontColor }}>Setting</Text>
+      <Switch
+        trackColor={{ false: "gray", true: "gray" }}
+        thumbColor="white"
+        ios_backgroundColor="gray"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      />
     </Container>
   );
 };

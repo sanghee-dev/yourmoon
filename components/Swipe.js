@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
 import { Animated, PanResponder } from "react-native";
-import { useTime, useColors } from "../context/contextFn";
+import { useTime, useIsDarkMode } from "../context/contextFn";
 
 const BackView = styled.View`
   width: 100%;
@@ -10,7 +10,7 @@ const BackView = styled.View`
 
 const Swipe = () => {
   const { time, setTime } = useTime();
-  const { colors } = useColors();
+  const { isDarkMode } = useIsDarkMode;
   const [xLength, setXLength] = useState(0);
 
   const position = new Animated.ValueXY();
@@ -48,7 +48,7 @@ const Swipe = () => {
         height: "100%",
         position: "absolute",
         zIndex: -1,
-        backgroundColor: colors.bgColor,
+        backgroundColor: isDarkMode ? "white" : "black",
       }}
       {...panResponder.panHandlers}
     >

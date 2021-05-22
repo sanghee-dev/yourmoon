@@ -13,10 +13,6 @@ export const useMoon = () => {
   const { moon } = useContext(MoonContext);
   return moon;
 };
-export const useShowRange = () => {
-  const { showRange } = useContext(MoonContext);
-  return showRange;
-};
 export const useIsLeft = () => {
   const { isLeft } = useContext(MoonContext);
   return isLeft;
@@ -24,4 +20,8 @@ export const useIsLeft = () => {
 export const useColors = () => {
   const { colors } = useContext(MoonContext);
   return colors;
+};
+export const useIsDarkMode = () => {
+  const { isDarkMode } = useContext(MoonContext);
+  return isDarkMode;
 };

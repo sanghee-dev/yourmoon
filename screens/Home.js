@@ -1,7 +1,7 @@
 import React from "react";
 import { ActivityIndicator, StatusBar } from "react-native";
 import styled from "styled-components/native";
-import { useLoading, useColors } from "../context/contextFn";
+import { useLoading, useColors, useIsDarkMode } from "../context/contextFn";
 import MoonShape from "../components/MoonShape";
 import Ellipse from "../components/Ellipse";
 import CenterLine from "../components/CenterLine";
@@ -19,14 +19,15 @@ const View = styled.View`
 const Home = () => {
   const { loading } = useLoading();
   const {
-    colors: { subColor, bgColor },
+    colors: { subColor },
   } = useColors();
+  const { isDarkMode } = useIsDarkMode();
 
   return (
     <Container
       style={{
         justifyContent: loading ? "center" : "",
-        backgroundColor: bgColor,
+        backgroundColor: isDarkMode ? "white" : "black",
       }}
     >
       <StatusBar barStyle="light-content" hidden={true} />

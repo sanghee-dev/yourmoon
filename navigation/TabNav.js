@@ -6,7 +6,7 @@ import Detail from "../screens/Detail";
 import Setting from "../screens/Setting";
 import ScreenOne from "../screens/ScreenOne";
 import ScreenTwo from "../screens/ScreenTwo";
-import { useMoon } from "../context/contextFn";
+import { useMoon, useIsDarkMode } from "../context/contextFn";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,6 +14,7 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
   const {
     moon: { stage },
   } = useMoon();
+  const { isDarkMode } = useIsDarkMode();
 
   const getIconName = (screenName) => {
     switch (screenName) {
@@ -65,9 +66,9 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
           <MaterialCommunityIcons
             name={getIconName(screenName)}
             size={24}
-            color={"rgb(255, 255, 255)"}
+            color={isDarkMode ? "white" : "black"}
             style={{
-              opacity: focused ? 0.9 : 0.4,
+              opacity: focused ? 0.7 : 0.4,
               marginBottom: getMarginBottom(screenName),
             }}
           />
