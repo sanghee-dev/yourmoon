@@ -1,26 +1,54 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { StatusBar, Switch } from "react-native";
 import styled from "styled-components/native";
-import { useColors, useIsDarkMode } from "../context/contextFn";
+import { useColors, useIsDarkMode, useHasGridLine } from "../context/contextFn";
 
 const Container = styled.View`
   height: 100%;
 `;
+const Column = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+`;
 const Text = styled.Text`
-  font-weight: 100;
-  font-size: 20px;
-  text-align: center;
+  font-weight: 200;
+  font-size: 24px;
+`;
+const Color = styled.View`
+  width: 20px;
+  height: 20px;
 `;
 
 const Setting = () => {
   const {
-    colors: { fontColor },
+    colors: { mainColor, subColor },
   } = useColors();
-  const { isDarkMode } = useIsDarkMode();
+  const { isDarkMode, setIsDarkMode } = useIsDarkMode();
+  const { hasGridLine, setHasGridLine } = useHasGridLine();
 
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const toggleArr = [
+    {
+      title: "DarkMode",
+      onValueChange: () => setIsDarkMode((prev) => !prev),
+      value: isDarkMode,
+    },
+    {
+      title: "Line",
+      onValueChange: () => setHasGridLine((prev) => !prev),
+      value: hasGridLine,
+    },
+  ];
+  const colorArr = [
+    "rgb(255,255,255)",
+    "rgb(0,255,0)",
+    "rgb(0,0,255)",
+    "rgb(255,0,0)",
+    "rgb(0,255,0)",
+    "rgb(0,0,0)",
+  ];
 
   return (
     <Container
@@ -29,14 +57,52 @@ const Setting = () => {
       }}
     >
       <StatusBar barStyle="light-content" hidden={true} />
-      <Text style={{ color: fontColor }}>Setting</Text>
-      <Switch
-        trackColor={{ false: "gray", true: "gray" }}
-        thumbColor="white"
-        ios_backgroundColor="gray"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
-      />
+      {toggleArr.map((toggle) => (
+        <Column
+          style={{
+            borderBottomWidth: 1,
+            borderBottomColor: isDarkMode
+              ? "rgba(255,255,255,0.2)"
+              : "rgba(0,0,0,0.1)",
+          }}
+        >
+          <Text style={{ color: isDarkMode ? "white" : "black" }}>
+            {toggle.title}
+          </Text>
+          <Switch
+            trackColor={{ false: "white", true: "gray" }}
+            thumbColor="white"
+            ios_backgroundColor="white"
+            onValueChange={toggle.onValueChange}
+            value={toggle.value}
+          />
+        </Column>
+      ))}
+      <Column
+        style={{
+          borderBottomWidth: 1,
+          borderBottomColor: isDarkMode
+            ? "rgba(255,255,255,0.2)"
+            : "rgba(0,0,0,0.1)",
+        }}
+      >
+        <Text style={{ color: isDarkMode ? "white" : "black" }}>
+          Main Color
+        </Text>
+        <>
+          {colorArr.map((color) => (
+            <Color
+              style={{
+                backgroundColor: color,
+                borderWidth: 1,
+                borderColor: isDarkMode
+                  ? "rgba(255,255,255,0.2)"
+                  : "rgba(0,0,0,0.1)",
+              }}
+            />
+          ))}
+        </>
+      </Column>
     </Container>
   );
 };

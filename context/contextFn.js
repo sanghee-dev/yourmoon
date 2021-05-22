@@ -25,3 +25,7 @@ export const useIsDarkMode = () => {
   const { isDarkMode } = useContext(MoonContext);
   return isDarkMode;
 };
+export const useHasGridLine = () => {
+  const { hasGridLine } = useContext(MoonContext);
+  return hasGridLine;
+};

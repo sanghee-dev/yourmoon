@@ -12,6 +12,7 @@ const StackNav = () => {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
+          height: 80,
           backgroundColor: isDarkMode ? "black" : "white",
           shadowOffset: {
             height: 0,
@@ -21,7 +22,7 @@ const StackNav = () => {
         headerTintColor: isDarkMode ? "white" : "black",
         headerTitleStyle: {
           fontSize: 32,
-          fontWeight: "100",
+          fontWeight: "200",
         },
         headerBackTitleVisible: false,
       }}
