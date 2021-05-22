@@ -34,9 +34,9 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
       case "Home":
         return 0;
       case "Detail":
-        return 48;
+        return 40;
       case "Setting":
-        return 48;
+        return 40;
       case "ScreenOne":
         return 8;
       case "ScreenTwo":

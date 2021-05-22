@@ -9,13 +9,13 @@ const SCALE = 0.8;
 const SMALL_RADIUS = WIDTH * SCALE * 0.3;
 const MARGIN_TOP = 40;
 const PIECES = 160;
+const LOCATIONS = [0, 0.3, 0.7, 1];
 
 const Container = styled.TouchableOpacity`
   width: ${WIDTH}px;
   height: ${WIDTH}px;
   border-radius: ${WIDTH / 2}px;
   overflow: hidden;
-  border: 1px solid gray;
 `;
 const MoonPeaceContainer = styled.TouchableOpacity`
   width: ${WIDTH}px;
@@ -81,7 +81,7 @@ const MoonShape = () => {
             <LinearGradient
               style={{ width: 1, height: WIDTH }}
               colors={[subColor, mainColor, mainColor, subColor]}
-              locations={[0, 0.4, 0.6, 1]}
+              locations={LOCATIONS}
             />
           </MoonPeace>
         ))}

@@ -5,9 +5,12 @@ import { Dimensions } from "react-native";
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
 const Container = styled.View`
+  width: 0;
+  height: 0;
   justify-content: center;
   align-items: center;
-  border: 1px solid gray;
+  position: absolute;
+  bottom: 80px;
 `;
 const Oval = styled.View`
   width: ${WIDTH / 2}px;

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import { Animated, PanResponder, Dimensions } from "react-native";
+import { Animated, PanResponder } from "react-native";
 import { useTime, useColors } from "../context/contextFn";
 
-const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 const BackView = styled.View`
   width: 100%;
   height: 100%;
+  border: 1px solid red;
 `;
 
 const Swipe = () => {
@@ -45,8 +45,8 @@ const Swipe = () => {
       style={{
         transform: [...position.getTranslateTransform()],
         opacity: 1,
-        width: WIDTH,
-        height: HEIGHT,
+        width: "100%",
+        height: "100%",
         position: "absolute",
         zIndex: -1,
         backgroundColor: colors.bgColor,

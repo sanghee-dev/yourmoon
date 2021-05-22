@@ -6,10 +6,13 @@ import MoonShape from "../components/MoonShape";
 import Ellipse from "../components/Ellipse";
 import CenterLine from "../components/CenterLine";
 import Days from "../components/Days";
+import Swipe from "../components/Swipe";
 
 const Container = styled.View`
   flex: 1;
-  justify-content: center;
+`;
+const View = styled.View`
+  align-items: center;
 `;
 
 const Home = () => {
@@ -29,13 +32,14 @@ const Home = () => {
       {loading ? (
         <ActivityIndicator size="small" color={subColor} />
       ) : (
-        <>
+        <View>
           <Days />
           <MoonShape />
           <Ellipse />
           <CenterLine />
-        </>
+        </View>
       )}
+      <Swipe />
     </Container>
   );
 };

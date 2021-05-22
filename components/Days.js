@@ -7,7 +7,6 @@ const Container = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: 1px solid gray;
 `;
 const Text = styled.Text`
   color: white;
@@ -21,7 +20,7 @@ const Days = () => {
     if (date.length === 1) return `0${date}`;
     return date;
   };
-  for (let i = -2; i < 3; i++) {
+  for (let i = -3; i < 4; i++) {
     const nowDate = time.getTime() + 86400000 * i;
     dates.push(new Date(nowDate).getDate());
   }
@@ -34,8 +33,8 @@ const Days = () => {
       {dates.map((date, idx) => (
         <Text
           style={{
-            color: idx === 2 ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.8)",
-            fontWeight: idx === 2 ? "500" : "300",
+            color: idx === 3 ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.8)",
+            fontWeight: idx === 3 ? "500" : "300",
           }}
         >
           {makeTwoLetters(date)}
