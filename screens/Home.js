@@ -12,6 +12,7 @@ const Container = styled.View`
   flex: 1;
 `;
 const View = styled.View`
+  flex: 1;
   align-items: center;
 `;
 
@@ -37,9 +38,9 @@ const Home = () => {
           <MoonShape />
           <Ellipse />
           <CenterLine />
+          <Swipe />
         </View>
       )}
-      <Swipe />
     </Container>
   );
 };

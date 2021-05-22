@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import { Dimensions } from "react-native";
 
-const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
+const { width: WIDTH } = Dimensions.get("window");
 
 const Container = styled.View`
   width: 0;

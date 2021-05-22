@@ -1,16 +1,12 @@
 import React from "react";
 import styled from "styled-components/native";
-import { Dimensions } from "react-native";
-
-const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
 const Container = styled.View`
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  position: absolute;
 `;
 const Line = styled.View`
-  position: absolute;
-  height: ${HEIGHT}px;
+  height: 100%;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-style: dotted;
   transform: scale(0.8, 1.5);
