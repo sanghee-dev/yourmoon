@@ -5,9 +5,11 @@ import { useLoading, useColors } from "../context/contextFn";
 import MoonShape from "../components/MoonShape";
 import Ellipse from "../components/Ellipse";
 import CenterLine from "../components/CenterLine";
+import Days from "../components/Days";
 
 const Container = styled.View`
   flex: 1;
+  justify-content: center;
 `;
 
 const Home = () => {
@@ -28,6 +30,7 @@ const Home = () => {
         <ActivityIndicator size="small" color={subColor} />
       ) : (
         <>
+          <Days />
           <MoonShape />
           <Ellipse />
           <CenterLine />

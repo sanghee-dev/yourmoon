@@ -8,6 +8,7 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  border: 1px solid gray;
 `;
 const Line = styled.View`
   position: absolute;

@@ -15,8 +15,7 @@ const Container = styled.TouchableOpacity`
   height: ${WIDTH}px;
   border-radius: ${WIDTH / 2}px;
   overflow: hidden;
-  position: absolute;
-  top: 20px;
+  border: 1px solid gray;
 `;
 const MoonPeaceContainer = styled.TouchableOpacity`
   width: ${WIDTH}px;
