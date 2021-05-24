@@ -4,11 +4,12 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useTime, useIsDarkMode } from "../../context/contextFn";
 
 const Container = styled.View`
+  position: absolute;
+  bottom: 150px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 180px;
+  height: 24px;
 `;
 const Text = styled.Text`
   font-weight: 200;
@@ -42,7 +43,7 @@ const Days = () => {
         <Arrow>
           <MaterialCommunityIcons
             name="arrow-left"
-            size={20}
+            size={22}
             color={isDarkMode ? "white" : "black"}
           />
         </Arrow>
@@ -63,7 +64,7 @@ const Days = () => {
         <Arrow>
           <MaterialCommunityIcons
             name="arrow-right"
-            size={20}
+            size={22}
             color={isDarkMode ? "white" : "black"}
           />
         </Arrow>

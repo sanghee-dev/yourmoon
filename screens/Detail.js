@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusBar } from "react-native";
+import { ActivityIndicator, StatusBar } from "react-native";
 import styled from "styled-components/native";
 import { useLoading, useIsDarkMode } from "../context/contextFn";
 
@@ -25,7 +25,14 @@ const Detail = () => {
       }}
     >
       <StatusBar barStyle="light-content" hidden={true} />
-      <Text style={{ color: isDarkMode ? "white" : "black" }}>Detail</Text>
+      {loading ? (
+        <ActivityIndicator
+          size="small"
+          color={isDarkMode ? "white" : "black"}
+        />
+      ) : (
+        <Text style={{ color: isDarkMode ? "white" : "black" }}>Detail</Text>
+      )}
     </Container>
   );
 };

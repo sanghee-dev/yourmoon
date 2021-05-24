@@ -21,6 +21,7 @@ const Container = styled.TouchableOpacity`
   height: ${WIDTH}px;
   border-radius: ${WIDTH / 2}px;
   overflow: hidden;
+  z-index: 999;
 `;
 const MoonPeaceContainer = styled.TouchableOpacity`
   width: ${WIDTH}px;

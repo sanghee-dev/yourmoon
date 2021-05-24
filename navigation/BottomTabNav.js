@@ -48,7 +48,7 @@ const BottomTabNav = () => {
               color={!focused ? "gray" : isDarkMode ? "white" : "black"}
               style={{
                 position: "absolute",
-                bottom: 20,
+                bottom: 18,
               }}
             />
           ),
@@ -116,7 +116,7 @@ const BottomTabNav = () => {
               color={!focused ? "gray" : isDarkMode ? "white" : "black"}
               style={{
                 position: "absolute",
-                bottom: 20,
+                bottom: 18,
               }}
             />
           ),
