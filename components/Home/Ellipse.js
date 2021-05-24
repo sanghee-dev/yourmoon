@@ -16,7 +16,7 @@ const Oval = styled.View`
   width: ${WIDTH / 2}px;
   height: ${WIDTH / 2}px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 1000;
+  border-radius: ${WIDTH / 2}px;
   transform: scale(1.8, 0.3);
 `;
 

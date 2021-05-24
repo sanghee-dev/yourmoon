@@ -41,13 +41,15 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
         return 8;
     }
   };
-  const capitalize = (str) => str?.charAt(0).toUpperCase() + str.slice(1);
 
   useLayoutEffect(() => {
     let mounted = true;
     if (mounted) {
       setOptions({
-        title: state?.routeNames[state.index] || "Moon",
+        title:
+          state?.routeNames[state.index] === "Home"
+            ? ""
+            : state?.routeNames[state.index] || "Moon",
       });
     }
     return () => (mounted = false);

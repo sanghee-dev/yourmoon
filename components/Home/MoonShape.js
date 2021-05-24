@@ -7,7 +7,7 @@ import {
   useIsLeft,
   useColors,
   useIsDarkMode,
-} from "../context/contextFn";
+} from "../../context/contextFn";
 
 const { width: WIDTH } = Dimensions.get("window");
 const SCALE = 0.8;

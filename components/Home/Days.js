@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useTime } from "../context/contextFn";
+import { useTime } from "../../context/contextFn";
 
 const Container = styled.View`
   flex-direction: row;

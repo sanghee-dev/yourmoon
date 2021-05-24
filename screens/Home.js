@@ -2,10 +2,10 @@ import React from "react";
 import { ActivityIndicator, StatusBar } from "react-native";
 import styled from "styled-components/native";
 import { useLoading, useColors, useIsDarkMode } from "../context/contextFn";
-import MoonShape from "../components/MoonShape";
-import Ellipse from "../components/Ellipse";
-import CenterLine from "../components/CenterLine";
-import Days from "../components/Days";
+import MoonShape from "../components/Home/MoonShape";
+import Ellipse from "../components/Home/Ellipse";
+import CenterLine from "../components/Home/CenterLine";
+import Days from "../components/Home/Days";
 import Swipe from "../components/Swipe";
 
 const Container = styled.View`
