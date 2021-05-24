@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import { Dimensions } from "react-native";
-import { useIsDarkMode } from "../../context/contextFn";
+import { useIsDarkMode, useHasGridLine } from "../../context/contextFn";
 
 const { width: WIDTH } = Dimensions.get("window");
 
@@ -23,11 +23,19 @@ const Oval = styled.View`
 
 const Ellipse = () => {
   const { isDarkMode } = useIsDarkMode();
+  const { hasGridLine } = useHasGridLine();
 
   return (
     <Container>
       <Oval
-        style={{ borderColor: isDarkMode ? "white" : "black", opacity: 0.3 }}
+        style={{
+          borderColor: !hasGridLine
+            ? "rgba(0,0,0,0)"
+            : isDarkMode
+            ? "white"
+            : "black",
+          opacity: 0.3,
+        }}
       />
     </Container>
   );

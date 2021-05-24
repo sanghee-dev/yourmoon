@@ -29,7 +29,6 @@ const BottomTabNav = () => {
           backgroundColor: isDarkMode ? "black" : "white",
         },
         style: {
-          backgroundColor: "rgba(22, 22, 22, 0)",
           position: "absolute",
           bottom: 0,
           left: 0,

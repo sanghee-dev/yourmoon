@@ -15,9 +15,18 @@ const Stage = () => {
   } = useMoon();
   const { isDarkMode } = useIsDarkMode();
 
-  const getName = (illumination) => {
-    const error = 2;
-    return illumination <= error
+  const error = 0.5;
+  const getStageName = (stage) => {
+    let stageName =
+      illumination < error
+        ? "New"
+        : illumination > 100 - error
+        ? "Full"
+        : stage;
+    return stageName[0].toUpperCase() + stageName.slice(1);
+  };
+  const getMoonName = (illumination) => {
+    return illumination < error
       ? "Moon"
       : illumination <= 50 - error
       ? "Crescent"
@@ -27,11 +36,10 @@ const Stage = () => {
       ? "Gibbous"
       : "Moon";
   };
-  const capitalize = (str) => str[0].toUpperCase() + str.slice(1);
 
   return (
     <Text style={{ color: isDarkMode ? "white" : "black" }}>
-      {capitalize(stage)} {getName(illumination)}
+      {getStageName(stage)} {getMoonName(illumination)}
     </Text>
   );
 };

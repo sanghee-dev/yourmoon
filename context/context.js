@@ -15,8 +15,8 @@ const MoonContextProvider = ({ children }) => {
   });
   const [isLeft, setIsLeft] = useState(false);
   const [colors, setColors] = useState({
-    mainColor: "rgb(255, 255, 255)",
-    subColor: "rgb(100, 100, 100)",
+    mainColor: "rgb(255,255,255)",
+    subColor: "rgb(0,0,0)",
   });
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [hasGridLine, setHasGridLine] = useState(true);
