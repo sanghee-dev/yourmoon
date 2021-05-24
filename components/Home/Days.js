@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useTime } from "../../context/contextFn";
+import { useTime, useIsDarkMode } from "../../context/contextFn";
 
 const Container = styled.View`
   flex-direction: row;
@@ -11,18 +11,17 @@ const Container = styled.View`
   bottom: 180px;
 `;
 const Text = styled.Text`
-  color: white;
+  font-weight: 200;
   margin: 0 8px;
 `;
 const ArrowButton = styled.TouchableOpacity`
   margin: 0 8px;
 `;
-const Arrow = styled.Text`
-  color: rgba(255, 255, 255, 0.8);
-`;
+const Arrow = styled.Text``;
 
 const Days = () => {
   const { time, setTime } = useTime();
+  const { isDarkMode } = useIsDarkMode();
   const dates = [];
   const makeTwoLetters = (date) => {
     if (date.length === 1) return `0${date}`;
@@ -41,14 +40,19 @@ const Days = () => {
     <Container>
       <ArrowButton onPress={onPressLeft}>
         <Arrow>
-          <MaterialCommunityIcons name="arrow-left" size={18} />
+          <MaterialCommunityIcons
+            name="arrow-left"
+            size={20}
+            color={isDarkMode ? "white" : "black"}
+          />
         </Arrow>
       </ArrowButton>
       {dates.map((date, idx) => (
         <Text
           key={idx}
           style={{
-            color: idx === 3 ? "rgba(255,255,255,1)" : "rgba(255,255,255,0.8)",
+            color: isDarkMode ? "white" : "black",
+            opacity: idx === 3 ? 1 : 0.8,
             fontWeight: idx === 3 ? "500" : "300",
           }}
         >
@@ -57,7 +61,11 @@ const Days = () => {
       ))}
       <ArrowButton onPress={onPressRight}>
         <Arrow>
-          <MaterialCommunityIcons name="arrow-right" size={18} />
+          <MaterialCommunityIcons
+            name="arrow-right"
+            size={20}
+            color={isDarkMode ? "white" : "black"}
+          />
         </Arrow>
       </ArrowButton>
     </Container>

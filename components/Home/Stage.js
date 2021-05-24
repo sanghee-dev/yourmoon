@@ -5,6 +5,7 @@ import { useMoon, useIsDarkMode } from "../../context/contextFn";
 const Text = styled.Text`
   font-weight: 200;
   font-size: 32px;
+  text-align: center;
   margin-bottom: 20px;
 `;
 
@@ -12,7 +13,7 @@ const Stage = () => {
   const {
     moon: { illumination, stage },
   } = useMoon();
-  const { isDarkMode } = useIsDarkMode;
+  const { isDarkMode } = useIsDarkMode();
 
   const getName = (illumination) => {
     const error = 2;
@@ -29,7 +30,7 @@ const Stage = () => {
   const capitalize = (str) => str[0].toUpperCase() + str.slice(1);
 
   return (
-    <Text style={{ color: isDarkMode ? "black" : "white" }}>
+    <Text style={{ color: isDarkMode ? "white" : "black" }}>
       {capitalize(stage)} {getName(illumination)}
     </Text>
   );

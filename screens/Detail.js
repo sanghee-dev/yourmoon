@@ -4,9 +4,11 @@ import styled from "styled-components/native";
 import { useLoading, useIsDarkMode } from "../context/contextFn";
 
 const Container = styled.View`
-  height: 100%;
+  flex: 1;
+  padding-top: 40px;
 `;
 const Text = styled.Text`
+  font-size: 32px;
   font-weight: 200;
   text-align: center;
 `;

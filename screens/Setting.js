@@ -5,7 +5,8 @@ import styled from "styled-components/native";
 import { useColors, useIsDarkMode, useHasGridLine } from "../context/contextFn";
 
 const Container = styled.View`
-  height: 100%;
+  flex: 1;
+  padding-top: 40px;
 `;
 const Column = styled.View`
   flex-direction: row;
@@ -14,8 +15,8 @@ const Column = styled.View`
   padding: 16px 40px;
 `;
 const Text = styled.Text`
+  font-size: 28px;
   font-weight: 200;
-  font-size: 24px;
 `;
 const Color = styled.View`
   width: 20px;

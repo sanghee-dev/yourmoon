@@ -1,5 +1,4 @@
 import React from "react";
-import { Dimensions } from "react-native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { useIsDarkMode } from "../context/contextFn";
 import { MaterialCommunityIcons } from "@expo/vector-icons";

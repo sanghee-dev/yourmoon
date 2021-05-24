@@ -37,7 +37,6 @@ const MoonCenter = styled.View`
   width: ${SMALL_RADIUS}px;
   height: ${SMALL_RADIUS}px;
   border-radius: ${SMALL_RADIUS / 2}px;
-  background-color: "rgba(255,255,0,1)";
   position: relative;
   top: ${WIDTH / 2 - SMALL_RADIUS / 2}px;
 `;
@@ -57,7 +56,7 @@ const MoonShape = () => {
   const {
     colors: { mainColor, subColor },
   } = useColors();
-  const { isDarkMode } = useIsDarkMode;
+  const { isDarkMode } = useIsDarkMode();
 
   let moonPeaceArray = [];
   for (let i = 0; i < PIECES; i++) {
@@ -95,7 +94,7 @@ const MoonShape = () => {
       </MoonPeaceContainer>
       <MoonShadow
         style={[
-          { backgroundColor: isDarkMode ? "white" : "black" },
+          { backgroundColor: isDarkMode ? "black" : "white" },
           {
             left: isLeft
               ? (Math.round(illumination * 10) / 1000) * WIDTH
@@ -108,7 +107,7 @@ const MoonShape = () => {
             },
             shadowOpacity: 1,
             shadowRadius: 20,
-            shadowColor: isDarkMode ? "white" : "black",
+            shadowColor: isDarkMode ? "black" : "white",
           },
         ]}
       />
