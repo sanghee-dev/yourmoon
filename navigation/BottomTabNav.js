@@ -43,11 +43,11 @@ const BottomTabNav = () => {
         component={Detail}
         options={{
           tabBarLabel: () => null,
-          tabBarIcon: () => (
+          tabBarIcon: ({ focused }) => (
             <MaterialCommunityIcons
               name="moon-waning-crescent"
               size={24}
-              color={isDarkMode ? "white" : "black"}
+              color={!focused ? "gray" : isDarkMode ? "white" : "black"}
               style={{
                 position: "absolute",
                 bottom: 20,
@@ -61,11 +61,11 @@ const BottomTabNav = () => {
         component={ScreenOne}
         options={{
           tabBarLabel: () => null,
-          tabBarIcon: () => (
+          tabBarIcon: ({ focused }) => (
             <MaterialCommunityIcons
               name="moon-waning-gibbous"
               size={24}
-              color={isDarkMode ? "white" : "black"}
+              color={!focused ? "gray" : isDarkMode ? "white" : "black"}
               style={{
                 position: "absolute",
                 bottom: 4,
@@ -79,11 +79,11 @@ const BottomTabNav = () => {
         component={Home}
         options={{
           tabBarLabel: () => null,
-          tabBarIcon: () => (
+          tabBarIcon: ({ focused }) => (
             <MaterialCommunityIcons
               name="moon-full"
               size={24}
-              color={isDarkMode ? "white" : "black"}
+              color={!focused ? "gray" : isDarkMode ? "white" : "black"}
             />
           ),
         }}
@@ -93,11 +93,11 @@ const BottomTabNav = () => {
         component={ScreenTwo}
         options={{
           tabBarLabel: () => null,
-          tabBarIcon: () => (
+          tabBarIcon: ({ focused }) => (
             <MaterialCommunityIcons
               name="moon-waxing-gibbous"
               size={24}
-              color={isDarkMode ? "white" : "black"}
+              color={!focused ? "gray" : isDarkMode ? "white" : "black"}
               style={{
                 position: "absolute",
                 bottom: 4,
@@ -111,11 +111,11 @@ const BottomTabNav = () => {
         component={Setting}
         options={{
           tabBarLabel: () => null,
-          tabBarIcon: () => (
+          tabBarIcon: ({ focused }) => (
             <MaterialCommunityIcons
               name="moon-waxing-crescent"
               size={24}
-              color={isDarkMode ? "white" : "black"}
+              color={!focused ? "gray" : isDarkMode ? "white" : "black"}
               style={{
                 position: "absolute",
                 bottom: 20,
