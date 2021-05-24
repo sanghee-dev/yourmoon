@@ -27,7 +27,7 @@ const Home = () => {
     <Container
       style={{
         justifyContent: loading ? "center" : "",
-        backgroundColor: isDarkMode ? "white" : "black",
+        backgroundColor: isDarkMode ? "black" : "white",
       }}
     >
       <StatusBar barStyle="light-content" hidden={true} />
@@ -39,7 +39,7 @@ const Home = () => {
           <MoonShape />
           <Ellipse />
           <CenterLine />
-          <Swipe />
+          {/* <Swipe /> */}
         </View>
       )}
     </Container>

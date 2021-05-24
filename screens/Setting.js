@@ -57,8 +57,9 @@ const Setting = () => {
       }}
     >
       <StatusBar barStyle="light-content" hidden={true} />
-      {toggleArr.map((toggle) => (
+      {toggleArr.map((toggle, idx) => (
         <Column
+          key={idx}
           style={{
             borderBottomWidth: 1,
             borderBottomColor: isDarkMode
@@ -90,8 +91,9 @@ const Setting = () => {
           Main Color
         </Text>
         <>
-          {colorArr.map((color) => (
+          {colorArr.map((color, idx) => (
             <Color
+              key={idx}
               style={{
                 backgroundColor: color,
                 borderWidth: 1,

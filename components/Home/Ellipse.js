@@ -10,7 +10,7 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 80px;
+  bottom: 100px;
 `;
 const Oval = styled.View`
   width: ${WIDTH / 2}px;
