@@ -1,6 +1,7 @@
 import React from "react";
 import { ActivityIndicator, StatusBar } from "react-native";
 import styled from "styled-components/native";
+import StyleSheet from "../styles/StyleSheet";
 import {
   useLoading,
   useIsDarkMode,
@@ -14,7 +15,6 @@ import CenterLine from "../components/Home/CenterLine";
 
 const Container = styled.View`
   flex: 1;
-  padding-top: 40px;
 `;
 const View = styled.View`
   flex: 1;
@@ -29,6 +29,7 @@ const Home = () => {
   return (
     <Container
       style={{
+        ...StyleSheet.Container,
         justifyContent: loading ? "center" : "",
         backgroundColor: isDarkMode ? "black" : "white",
       }}
