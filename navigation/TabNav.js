@@ -6,14 +6,11 @@ import Detail from "../screens/Detail";
 import Setting from "../screens/Setting";
 import ScreenOne from "../screens/ScreenOne";
 import ScreenTwo from "../screens/ScreenTwo";
-import { useMoon, useIsDarkMode } from "../context/contextFn";
+import { useIsDarkMode } from "../context/contextFn";
 
 const Tab = createBottomTabNavigator();
 
 const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
-  const {
-    moon: { stage },
-  } = useMoon();
   const { isDarkMode } = useIsDarkMode();
 
   const getIconName = (screenName) => {
@@ -50,10 +47,7 @@ const TabNav = ({ navigation: { setOptions }, route: { state } }) => {
     let mounted = true;
     if (mounted) {
       setOptions({
-        title:
-          state?.routeNames[state.index] === "Home"
-            ? `${capitalize(stage)} Moon`
-            : state?.routeNames[state.index] || "Moon",
+        title: state?.routeNames[state.index] || "Moon",
       });
     }
     return () => (mounted = false);
