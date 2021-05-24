@@ -17,7 +17,7 @@ const Oval = styled.View`
   height: ${WIDTH / 2}px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: ${WIDTH / 2}px;
-  transform: scale(1.8, 0.3);
+  transform: scale(1.7, 0.3);
 `;
 
 const Ellipse = () => {

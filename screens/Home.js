@@ -3,13 +3,13 @@ import { ActivityIndicator, StatusBar } from "react-native";
 import styled from "styled-components/native";
 import { useLoading, useColors, useIsDarkMode } from "../context/contextFn";
 import MoonShape from "../components/Home/MoonShape";
+import Stage from "../components/Home/Stage";
 import Ellipse from "../components/Home/Ellipse";
-import CenterLine from "../components/Home/CenterLine";
 import Days from "../components/Home/Days";
-import Swipe from "../components/Swipe";
 
 const Container = styled.View`
   flex: 1;
+  padding-top: 40px;
 `;
 const View = styled.View`
   flex: 1;
@@ -35,11 +35,10 @@ const Home = () => {
         <ActivityIndicator size="small" color={subColor} />
       ) : (
         <View>
-          <Days />
+          <Stage />
           <MoonShape />
+          <Days />
           <Ellipse />
-          <CenterLine />
-          {/* <Swipe /> */}
         </View>
       )}
     </Container>
