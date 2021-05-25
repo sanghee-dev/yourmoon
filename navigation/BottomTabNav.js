@@ -20,7 +20,7 @@ const BottomTabNav = () => {
       tabBarOptions={{
         showIcon: true,
         activeTintColor: "white",
-        labelStyle: { fontSize: 12 },
+        labelStyle: { fontSize: 0 },
         indicatorStyle: {
           opacity: 0,
         },

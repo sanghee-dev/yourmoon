@@ -1,7 +1,5 @@
 import React from "react";
 import { ActivityIndicator, StatusBar } from "react-native";
-import styled from "styled-components/native";
-import StyleSheet from "../styles/StyleSheet";
 import { useLoading, useIsDarkMode } from "../context/contextFn";
 import Container from "../components/Container";
 import Title from "../components/Title";

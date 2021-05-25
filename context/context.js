@@ -19,7 +19,6 @@ const MoonContextProvider = ({ children }) => {
     subColor: "rgb(255,255,0)",
   });
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [hasGridLine, setHasGridLine] = useState(true);
 
   const getMoon = async () => {
     try {
@@ -66,7 +65,6 @@ const MoonContextProvider = ({ children }) => {
         isLeft: { isLeft, setIsLeft },
         colors: { colors, setColors },
         isDarkMode: { isDarkMode, setIsDarkMode },
-        hasGridLine: { hasGridLine, setHasGridLine },
       }}
     >
       {children}

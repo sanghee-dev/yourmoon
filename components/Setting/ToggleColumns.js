@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch } from "react-native";
 import styled from "styled-components/native";
-import { useIsDarkMode, useHasGridLine } from "../../context/contextFn";
+import { useIsDarkMode } from "../../context/contextFn";
 
 const Container = styled.View``;
 const Column = styled.View`
@@ -17,7 +17,6 @@ const Text = styled.Text`
 
 const ToggleColumns = () => {
   const { isDarkMode, setIsDarkMode } = useIsDarkMode();
-  const { hasGridLine, setHasGridLine } = useHasGridLine();
 
   const toggleArr = [
     {
@@ -25,11 +24,6 @@ const ToggleColumns = () => {
       onValueChange: () => setIsDarkMode((prev) => !prev),
       value: isDarkMode,
     },
-    // {
-    //   title: "Line",
-    //   onValueChange: () => setHasGridLine((prev) => !prev),
-    //   value: hasGridLine,
-    // },
   ];
 
   return (
