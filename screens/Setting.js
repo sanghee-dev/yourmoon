@@ -1,34 +1,19 @@
 import React from "react";
 import { ActivityIndicator, StatusBar } from "react-native";
-import styled from "styled-components/native";
-import StyleSheet from "../styles/StyleSheet";
 import { useLoading, useIsDarkMode } from "../context/contextFn";
+import Container from "../components/Container";
+import Title from "../components/Title";
 import ToggleColumns from "../components/Setting/ToggleColumns";
 import ColorColumns from "../components/Setting/ColorColumns";
-
-const Container = styled.View`
-  flex: 1;
-`;
-const Title = styled.Text``;
 
 const Setting = () => {
   const { loading } = useLoading();
   const { isDarkMode } = useIsDarkMode();
 
   return (
-    <Container
-      style={{
-        ...StyleSheet.Container,
-        justifyContent: loading ? "center" : "",
-        backgroundColor: isDarkMode ? "black" : "white",
-      }}
-    >
+    <Container>
       <StatusBar barStyle="light-content" hidden={true} />
-      <Title
-        style={{ ...StyleSheet.Title, color: isDarkMode ? "white" : "black" }}
-      >
-        Setting
-      </Title>
+      <Title text="Setting" />
       {loading ? (
         <ActivityIndicator
           size="small"

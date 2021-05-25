@@ -27,6 +27,7 @@ const Color = styled.TouchableOpacity`
 
 const ColorColumns = () => {
   const {
+    colors,
     colors: { mainColor, subColor },
     setColors,
   } = useColors();
@@ -83,9 +84,9 @@ const ColorColumns = () => {
               <Color
                 onPress={() => {
                   if (color.title === "Main Color") {
-                    setColors({ mainColor: colorChip, subColor });
+                    setColors({ ...colors, mainColor: colorChip });
                   } else {
-                    setColors({ mainColor, subColor: colorChip });
+                    setColors({ ...colors, subColor: colorChip });
                   }
                 }}
                 key={idx}
