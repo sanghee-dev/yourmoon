@@ -1,7 +1,8 @@
 import React from "react";
-import { ActivityIndicator, StatusBar } from "react-native";
 import styled from "styled-components/native";
-import { useLoading, useIsDarkMode } from "../context/contextFn";
+import { useLoading } from "../context/contextFn";
+import Status from "../components/Status";
+import Indicator from "../components/Indicator";
 import Container from "../components/Container";
 import MoonShape from "../components/Home/MoonShape";
 import Stage from "../components/Home/Stage";
@@ -14,16 +15,12 @@ const View = styled.View`
 
 const Home = () => {
   const { loading } = useLoading();
-  const { isDarkMode } = useIsDarkMode();
 
   return (
     <Container>
-      <StatusBar barStyle="light-content" hidden={true} />
+      <Status />
       {loading ? (
-        <ActivityIndicator
-          size="small"
-          color={isDarkMode ? "white" : "black"}
-        />
+        <Indicator />
       ) : (
         <View>
           <Stage />

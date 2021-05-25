@@ -1,24 +1,33 @@
 import React from "react";
-import { ActivityIndicator, StatusBar } from "react-native";
-import { useLoading, useIsDarkMode } from "../context/contextFn";
+import styled from "styled-components/native";
+import { useLoading } from "../context/contextFn";
+import Status from "../components/Status";
+import Indicator from "../components/Indicator";
 import Container from "../components/Container";
 import Title from "../components/Title";
 
+const Text = styled.Text`
+  font-size: 32;
+  font-weight: 200;
+  color: white;
+  padding: 16px 32px;
+`;
+
 const Detail = () => {
   const { loading } = useLoading();
-  const { isDarkMode } = useIsDarkMode();
 
   return (
     <Container>
-      <StatusBar barStyle="light-content" hidden={true} />
+      <Status />
       <Title text="Detail" />
       {loading ? (
-        <ActivityIndicator
-          size="small"
-          color={isDarkMode ? "white" : "black"}
-        />
+        <Indicator />
       ) : (
-        <></>
+        <>
+          <Text>a</Text>
+          <Text>a</Text>
+          <Text>a</Text>
+        </>
       )}
     </Container>
   );

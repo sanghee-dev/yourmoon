@@ -1,6 +1,7 @@
 import React from "react";
-import { ActivityIndicator, StatusBar } from "react-native";
-import { useLoading, useIsDarkMode } from "../context/contextFn";
+import { useLoading } from "../context/contextFn";
+import Status from "../components/Status";
+import Indicator from "../components/Indicator";
 import Container from "../components/Container";
 import Title from "../components/Title";
 import ToggleColumns from "../components/Setting/ToggleColumns";
@@ -8,17 +9,13 @@ import ColorColumns from "../components/Setting/ColorColumns";
 
 const Setting = () => {
   const { loading } = useLoading();
-  const { isDarkMode } = useIsDarkMode();
 
   return (
     <Container>
-      <StatusBar barStyle="light-content" hidden={true} />
+      <Status />
       <Title text="Setting" />
       {loading ? (
-        <ActivityIndicator
-          size="small"
-          color={isDarkMode ? "white" : "black"}
-        />
+        <Indicator />
       ) : (
         <>
           <ToggleColumns />

@@ -8,7 +8,7 @@ const Column = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 40px;
+  padding: 16px 32px;
 `;
 const Text = styled.Text`
   font-size: 28px;
