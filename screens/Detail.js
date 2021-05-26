@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
-import { useLoading } from "../context/contextFn";
+import { useLoading, useMoon } from "../context/contextFn";
 import Status from "../components/Status";
 import Indicator from "../components/Indicator";
 import Container from "../components/Container";
@@ -15,18 +15,22 @@ const Text = styled.Text`
 
 const Detail = () => {
   const { loading } = useLoading();
+  const {
+    moon: { illumination, stage, fmDt, nnmDt },
+  } = useMoon();
 
   return (
     <Container>
       <Status />
-      <Title text="Detail" />
+      <Title>Detail</Title>
       {loading ? (
         <Indicator />
       ) : (
         <>
-          <Text>a</Text>
-          <Text>a</Text>
-          <Text>a</Text>
+          <Text>{illumination}</Text>
+          <Text>{stage}</Text>
+          <Text>{fmDt}</Text>
+          <Text>{nnmDt}</Text>
         </>
       )}
     </Container>

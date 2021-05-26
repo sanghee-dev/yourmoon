@@ -3,13 +3,11 @@ import styled from "styled-components/native";
 import { useIsDarkMode } from "../context/contextFn";
 
 const Text = styled.Text`
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 200;
-  text-align: center;
-  margin-bottom: 20px;
 `;
 
-const Title = ({ children }) => {
+const ColumnText = ({ children }) => {
   const { isDarkMode } = useIsDarkMode();
 
   return (
@@ -17,4 +15,4 @@ const Title = ({ children }) => {
   );
 };
 
-export default Title;
+export default ColumnText;

@@ -11,7 +11,7 @@ const ScreenTwo = () => {
   return (
     <Container>
       <Status />
-      <Title text="Screen Two" />
+      <Title>Screen Two</Title>
       {loading ? <Indicator /> : <></>}
     </Container>
   );

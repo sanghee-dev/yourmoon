@@ -2,18 +2,9 @@ import React from "react";
 import styled from "styled-components/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useColors, useIsDarkMode } from "../../context/contextFn";
+import Column from "../Column";
+import ColumnText from "../ColumnText";
 
-const Container = styled.View``;
-const Column = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 32px;
-`;
-const Text = styled.Text`
-  font-size: 28px;
-  font-weight: 200;
-`;
 const ColorBox = styled.View`
   flex-direction: row;
 `;
@@ -65,20 +56,10 @@ const ColorColumns = () => {
   };
 
   return (
-    <Container>
+    <>
       {colorArr.map((color, idx) => (
-        <Column
-          key={idx}
-          style={{
-            borderBottomWidth: 1,
-            borderBottomColor: isDarkMode
-              ? "rgba(255,255,255,0.2)"
-              : "rgba(0,0,0,0.1)",
-          }}
-        >
-          <Text style={{ color: isDarkMode ? "white" : "black" }}>
-            {color.title}
-          </Text>
+        <Column key={idx}>
+          <ColumnText>{color.title}</ColumnText>
           <ColorBox>
             {colorChips.map((colorChip, idx) => (
               <Color
@@ -108,7 +89,7 @@ const ColorColumns = () => {
           </ColorBox>
         </Column>
       ))}
-    </Container>
+    </>
   );
 };
 

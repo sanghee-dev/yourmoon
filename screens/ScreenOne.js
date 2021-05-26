@@ -11,7 +11,7 @@ const ScreenOne = () => {
   return (
     <Container>
       <Status />
-      <Title text="Screen One" />
+      <Title>Screen One</Title>
       {loading ? <Indicator /> : <></>}
     </Container>
   );

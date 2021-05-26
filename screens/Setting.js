@@ -13,7 +13,7 @@ const Setting = () => {
   return (
     <Container>
       <Status />
-      <Title text="Setting" />
+      <Title>Setting</Title>
       {loading ? (
         <Indicator />
       ) : (

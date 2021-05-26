@@ -1,9 +1,6 @@
 import React from "react";
-import styled from "styled-components/native";
-import StyleSheet from "../../styles/StyleSheet";
 import { useMoon, useIsDarkMode } from "../../context/contextFn";
-
-const Text = styled.Text``;
+import Title from "../Title";
 
 const Stage = () => {
   const {
@@ -34,11 +31,9 @@ const Stage = () => {
   };
 
   return (
-    <Text
-      style={{ ...StyleSheet.Title, color: isDarkMode ? "white" : "black" }}
-    >
+    <Title>
       {getStageName(stage)} {getMoonName(illumination)}
-    </Text>
+    </Title>
   );
 };
 
