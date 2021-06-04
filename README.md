@@ -33,4 +33,6 @@
 
 - https://expo.io/@sanghee/projects/yourmoon
 
+<img alt="mockup" src="https://user-images.githubusercontent.com/61302874/120797499-163feb80-c577-11eb-88a4-abaa4303ae04.png" width="800" />
+
 <img alt="expo" src="https://user-images.githubusercontent.com/61302874/118396320-f27d3a00-b689-11eb-827d-bb95ed1e59a2.png" width="800" />
