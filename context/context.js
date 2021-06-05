@@ -10,8 +10,12 @@ const MoonContextProvider = ({ children }) => {
   const [moon, setMoon] = useState({
     illumination: 0,
     stage: "",
-    fmDt: 0,
-    nnmDt: 0,
+    fmUt: 0,
+    nnmUt: 0,
+  });
+  const [moonTime, setMoonTime] = useState({
+    fm: { year: 0, month: 0, day: 0 },
+    nnm: { year: 0, month: 0, day: 0 },
   });
   const [isLeft, setIsLeft] = useState(false);
   const [colors, setColors] = useState({
@@ -20,6 +24,8 @@ const MoonContextProvider = ({ children }) => {
   });
   const [isDarkMode, setIsDarkMode] = useState(true);
 
+  const getTwoLetters = (str) => (`${str}`.length === 2 ? `${str}` : `0${str}`);
+
   const getMoon = async () => {
     try {
       const {
@@ -27,16 +33,30 @@ const MoonContextProvider = ({ children }) => {
           moon: {
             illumination,
             stage,
-            fm: { dt: fmDt },
-            nnm: { dt: nnmDt },
+            fm: { ut: fmUt },
+            nnm: { ut: nnmUt },
           },
         },
       } = await moonApi(Math.floor(time / 1000));
       setMoon({
         illumination,
         stage,
-        fmDt,
-        nnmDt,
+        fmUt,
+        nnmUt,
+      });
+      let fmDate = new Date(fmUt * 1000);
+      let nnmDate = new Date(nnmUt * 1000);
+      setMoonTime({
+        fm: {
+          year: fmDate.getFullYear() + "",
+          month: getTwoLetters(fmDate.getMonth()),
+          day: getTwoLetters(fmDate.getDate()),
+        },
+        nnm: {
+          year: nnmDate.getFullYear() + "",
+          month: getTwoLetters(nnmDate.getMonth()),
+          day: getTwoLetters(nnmDate.getDate()),
+        },
       });
       const nextDay = new Date(time.getTime() + 86400000);
       const {
@@ -62,6 +82,7 @@ const MoonContextProvider = ({ children }) => {
         loading: { loading, setLoading },
         time: { time, setTime },
         moon: { moon, setMoon },
+        moonTime: { moonTime, setMoonTime },
         isLeft: { isLeft, setIsLeft },
         colors: { colors, setColors },
         isDarkMode: { isDarkMode, setIsDarkMode },

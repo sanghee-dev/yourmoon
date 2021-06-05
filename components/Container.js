@@ -4,7 +4,7 @@ import { useLoading, useIsDarkMode } from "../context/contextFn";
 
 const View = styled.View`
   flex: 1;
-  padding-top: 40;
+  padding-top: 40px;
 `;
 
 const Container = ({ children }) => {

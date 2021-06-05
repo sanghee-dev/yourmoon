@@ -1,23 +1,39 @@
 import React from "react";
-import styled from "styled-components/native";
-import { useLoading, useMoon } from "../context/contextFn";
+import { useLoading, useMoon, useMoonTime } from "../context/contextFn";
 import Status from "../components/Status";
 import Indicator from "../components/Indicator";
 import Container from "../components/Container";
 import Title from "../components/Title";
-
-const Text = styled.Text`
-  font-size: 32;
-  font-weight: 200;
-  color: white;
-  padding: 16px 32px;
-`;
+import Column from "../components/Column";
+import ColumnText from "../components/ColumnText";
 
 const Detail = () => {
   const { loading } = useLoading();
   const {
-    moon: { illumination, stage, fmDt, nnmDt },
+    moon: { illumination, stage },
   } = useMoon();
+  const {
+    moonTime: { fm, nnm },
+  } = useMoonTime();
+
+  const detailArr = [
+    {
+      title: "Illumination",
+      value: `${Math.round(illumination)}%`,
+    },
+    {
+      title: "Stage",
+      value: stage,
+    },
+    {
+      title: "Full moon",
+      value: `${fm.year}.${fm.month}.${fm.day}`,
+    },
+    {
+      title: "New moon",
+      value: `${nnm.year}.${nnm.month}.${nnm.day}`,
+    },
+  ];
 
   return (
     <Container>
@@ -27,10 +43,12 @@ const Detail = () => {
         <Indicator />
       ) : (
         <>
-          <Text>{illumination}</Text>
-          <Text>{stage}</Text>
-          <Text>{fmDt}</Text>
-          <Text>{nnmDt}</Text>
+          {detailArr.map((datail) => (
+            <Column>
+              <ColumnText>{datail.title}</ColumnText>
+              <ColumnText>{datail.value}</ColumnText>
+            </Column>
+          ))}
         </>
       )}
     </Container>

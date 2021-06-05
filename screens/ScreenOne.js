@@ -8,6 +8,11 @@ import Title from "../components/Title";
 const ScreenOne = () => {
   const { loading } = useLoading();
 
+  const getSearch = () => {
+    const YOUTUBE_API_KEY = env.YOUTUBE_API_KEY;
+    const url = `https://www.googleapis.com/youtube/v3/search`;
+  };
+
   return (
     <Container>
       <Status />

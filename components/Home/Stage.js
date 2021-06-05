@@ -1,12 +1,11 @@
 import React from "react";
-import { useMoon, useIsDarkMode } from "../../context/contextFn";
+import { useMoon } from "../../context/contextFn";
 import Title from "../Title";
 
 const Stage = () => {
   const {
     moon: { illumination, stage },
   } = useMoon();
-  const { isDarkMode } = useIsDarkMode();
 
   const error = 0.5;
   const getStageName = (stage) => {

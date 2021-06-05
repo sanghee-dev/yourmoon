@@ -13,6 +13,10 @@ export const useMoon = () => {
   const { moon } = useContext(MoonContext);
   return moon;
 };
+export const useMoonTime = () => {
+  const { moonTime } = useContext(MoonContext);
+  return moonTime;
+};
 export const useIsLeft = () => {
   const { isLeft } = useContext(MoonContext);
   return isLeft;
