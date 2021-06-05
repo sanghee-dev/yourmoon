@@ -1,4 +1,4 @@
-# Yourmoon <img src="https://user-images.githubusercontent.com/61302874/118371966-01acab00-b5ea-11eb-9b3d-40d942660eb5.png" width="24">
+# Yourmoon ✺
 
 - Yourmoon is a graphic moon app made with react native.
 - If you want to see the moon, visit me!
